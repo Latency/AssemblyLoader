@@ -4,7 +4,7 @@
 //  Project:   DLL
 //  Date:      01/03/2016
 //  Author:    Latency McLaughlin
-//  Copywrite: Bio-Hazard Industries - 1998-2016
+//  Copywrite: Bio-Hazard Industries - 1998-2017
 //  *****************************************************************************
 
 using System;

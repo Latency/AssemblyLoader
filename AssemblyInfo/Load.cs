@@ -4,7 +4,7 @@
 //  Project:   DLL
 //  Date:      01/03/2016
 //  Author:    Latency McLaughlin
-//  Copywrite: Bio-Hazard Industries - 1998-2016
+//  Copywrite: Bio-Hazard Industries - 1998-2017
 //  *****************************************************************************
 
 using System;
@@ -12,15 +12,26 @@ using System.Reflection;
 
 namespace AssemblyInfo {
   public static class Load {
+    /// <summary>
+    ///  GetAssembly
+    /// </summary>
+    /// <param name="pAssemblyName"></param>
+    /// <returns></returns>
     public static Assembly GetAssembly(string pAssemblyName) {
       if (string.IsNullOrEmpty(pAssemblyName))
         return null;
       var tMyAssembly = GetAssemblyEmbedded(pAssemblyName);
       if (tMyAssembly == null)
-        GetAssemblyDLL(pAssemblyName);
+        GetAssemblyFile(pAssemblyName);
       return tMyAssembly;
     }
 
+
+    /// <summary>
+    ///  GetAssemblyEmbedded
+    /// </summary>
+    /// <param name="pAssemblyDisplayName"></param>
+    /// <returns></returns>
     public static Assembly GetAssemblyEmbedded(string pAssemblyDisplayName) {
       Assembly tMyAssembly = null;
       if (string.IsNullOrEmpty(pAssemblyDisplayName))
@@ -34,14 +45,20 @@ namespace AssemblyInfo {
       return tMyAssembly;
     }
 
-    public static Assembly GetAssemblyDLL(string pAssemblyNameDLL) {
+
+    /// <summary>
+    ///  GetAssemblyFile
+    /// </summary>
+    /// <param name="pAssemblyFileName"></param>
+    /// <returns></returns>
+    public static Assembly GetAssemblyFile(string pAssemblyFileName) {
       Assembly tMyAssembly = null;
-      if (string.IsNullOrEmpty(pAssemblyNameDLL))
+      if (string.IsNullOrEmpty(pAssemblyFileName))
         return null;
       try {
-        if (!pAssemblyNameDLL.ToLower().EndsWith(".dll"))
-          pAssemblyNameDLL += ".dll";
-        tMyAssembly = Assembly.LoadFrom(pAssemblyNameDLL);
+        if (!pAssemblyFileName.ToLower().EndsWith(".dll"))
+          pAssemblyFileName += ".dll";
+        tMyAssembly = Assembly.LoadFrom(pAssemblyFileName);
       }
       catch (Exception) {
         // ignored

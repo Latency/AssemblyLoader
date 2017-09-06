@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Bio-Hazard Industries")]
 [assembly: AssemblyProduct("AssemblyInfo")]
-[assembly: AssemblyCopyright("Copyright © 1998-2016")]
+[assembly: AssemblyCopyright("Copyright © 1998-2017")]
 [assembly: AssemblyTrademark("Latency McLaughlin")]
 [assembly: AssemblyCulture("")]
 

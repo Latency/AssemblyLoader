@@ -11,7 +11,7 @@ Assembly Information via Reflection
 * TAGS:       C# .NET AssemblyInfo API
 * VERSION:    1.0.5906.29896
 
-###
+<hr>
 
 - <a href="#introduction">Introduction</a>
 - <a href="#installation">Installation</a>
@@ -19,10 +19,12 @@ Assembly Information via Reflection
 
 <hr>
 
-<a name="introduction"><h2>Introduction</h2></a>
+<a name="introduction">Introduction</a>
+
 Gets assembly manifest information at runtime commonly found in *Properties* within .NET assemblies.
 
-<a name="installation"><h2>Installation</h2></a>
+<a name="installation">Installation</a>
+
 This library can be installed with NuGet:  **Non-published**
 
 Add a path to the .nupkg by going to Tools -> Options within Visual Studio.
@@ -40,7 +42,8 @@ Click *Update* and check the option (enabled) for the new entry.
 The package is now available in NuGet.
 Select the reference from the combo-box *Package Source* to the new entry.
 
-<a name="license"><h2>License</h2></a>
+<a name="license">License</a>
+
 [GNU LESSER GENERAL PUBLIC LICENSE] - Version 3, 29 June 2007
 
 
