@@ -1,6 +1,6 @@
 # AssemblyInfo
 
-Assembly Information via Reflection
+### Assembly Information via Reflection
 
 ---
 
@@ -9,21 +9,22 @@ Assembly Information via Reflection
 * SUPPORTS:   Visual Studio 2015, 2013, 2012, 2010, 2008
 * UPDATED:    3/1/2016
 * TAGS:       C# .NET AssemblyInfo API
-* VERSION:    1.0.5906.29896
+* VERSION:    1.0.6457.35901
 
 <hr>
 
-- <a href="#introduction">Introduction</a>
-- <a href="#installation">Installation</a>
-- <a href="#license">License</a>
+## Navigation
+* <a href="#introduction">Introduction</a>
+* <a href="#installation">Installation</a>
+* <a href="#license">License</a>
 
 <hr>
 
-<a name="introduction">Introduction</a>
+<h2><a name="introduction">Introduction</a></h2>
 
 Gets assembly manifest information at runtime commonly found in *Properties* within .NET assemblies.
 
-<a name="installation">Installation</a>
+<h2><a name="installation">Installation</a></h2>
 
 This library can be installed with NuGet:  **Non-published**
 
@@ -42,7 +43,7 @@ Click *Update* and check the option (enabled) for the new entry.
 The package is now available in NuGet.
 Select the reference from the combo-box *Package Source* to the new entry.
 
-<a name="license">License</a>
+<h2><a name="license">License</a></h2>
 
 [GNU LESSER GENERAL PUBLIC LICENSE] - Version 3, 29 June 2007
 
