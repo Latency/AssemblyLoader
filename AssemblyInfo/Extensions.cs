@@ -11,7 +11,7 @@ using System;
 using System.Reflection;
 
 namespace AssemblyInfo {
-  public static class Util {
+  public static class Extensions {
     /// <summary>
     ///   Retrieves a single value from a Custom <see cref="Attribute" /> associated with an <see cref="Assembly" />.
     /// </summary>
