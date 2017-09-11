@@ -26,7 +26,7 @@
 <h2><a name=history">History</a></h2>
 
 Trying to get information out of an assembly without loading it into the current application domain is not that simple.
-There is no way to get custom assembly attributes without loading it into current AppDomain.
+There is no way to get custom assembly attributes without loading it into the current AppDomain.
 There is a special assembly loading method, <i>Assembly.ReflectionOnlyLoad()</i>, which uses a "reflection-only" load context.
 This lets you load assemblies that cannot be executed, but can have their metadata read.
 You cannot get typed attributes from this kind of assembly, only CustomAttributeData.
