@@ -25,7 +25,7 @@
 <h2><a name="introduction">Introduction</a></h2>
 
 Gets assembly information at runtime commonly found in *Properties* within .NET assemblies.
-Dynamically loads / unloads assemblies and their dependancies within a proxy for validation. 
+Dynamically loads / unloads assemblies and their dependencies within a proxy for validation.
 
 <h2><a name=history">History</a></h2>
 
@@ -67,22 +67,11 @@ Trying to access these from another AppDomain (the caller's domain) would result
 
 <h2><a name="installation">Installation</a></h2>
 
-This library can be installed with NuGet:  **Non-published**
-
-Add a path to the .nupkg by going to Tools -> Options within Visual Studio.
-Scroll down until you see the *Nuget Package Manager -> Package Sources* option.
-
-A new dialog window will appear.
-Click the (+) Add button to create a new entry.
+This library can be installed using NuGet:
 
 Enter the details:
-Name:    AssemblyInfo
-Source:  <path to directory>
-
-Click *Update* and check the option (enabled) for the new entry.
-
-The package is now available in NuGet.
-Select the reference from the combo-box *Package Source* to the new entry.
+Name:    AssemblyLoader
+Source:  nuget.org
 
 <h2><a name="license">License</a></h2>
 
