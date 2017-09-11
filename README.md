@@ -17,6 +17,7 @@
 * <a href="#history">History</a>
 * <a href="#introduction">Introduction</a>
 * <a href="#solution">Solution</a>
+* <a href="#usage">Usage</a>
 * <a href="#installation">Installation</a>
 * <a href="#license">License</a>
 
@@ -47,14 +48,21 @@ Gets assembly manifest information at runtime commonly found in *Properties* wit
 
 Based on the following premises:
 
-Creating an assembly proxy (or wrapper), derived from MarshalByRefObject, so that the CLR can marshal it by reference across AppDomain boundaries
-Loading the assembly within this proxy (Assembly.ReflectionOnlyLoadFrom)
-Performing the reflection inside this proxy and return the data you need
-Creating a temporary AppDomain and instantiatign the assembly proxy in this AppDomain (AppDomain.CreateInstanceFrom)
+Creating an assembly proxy (or wrapper), derived from MarshalByRefObject, so that the CLR can marshal it by reference across AppDomain boundaries.
+Loading the assembly within this proxy (Assembly.ReflectionOnlyLoadFrom).
+Performing the reflection inside this proxy and return the data you need.
+Creating a temporary AppDomain and instantiating the assembly proxy in this AppDomain (AppDomain.CreateInstanceFrom).
 Unloading the AppDomain as soon as you finished reflecting.
+
 However, you have to keep in mind that reflection on the assembly loaded this way is only possible inside the proxy (the one derived from MarshalByRefObject).
 It is not possible to return any "reflection object" (anything defined in the System.Reflection namespace, such as Type, MethodInfo, etc.).
 Trying to access these from another AppDomain (the caller's domain) would result in exceptions.
+
+<h2><a name="usage">Usage</a></h2>
+
+- Types called across AppDomain boundaries must inherit MarshalByRefObject.
+- Types called across AppDomain boundaries must be called via an interface.
+- The property LoaderOptimization must be set to LoaderOptimization.MultiDomainHost.
 
 <h2><a name="installation">Installation</a></h2>
 
