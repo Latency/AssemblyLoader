@@ -49,7 +49,7 @@ Gets assembly manifest information at runtime commonly found in *Properties* wit
 Based on the following premises:
 
 Creating an assembly proxy (or wrapper), derived from MarshalByRefObject, so that the CLR can marshal it by reference across AppDomain boundaries.
-Loading the assembly within this proxy (Assembly.ReflectionOnlyLoadFrom).
+Loading the assembly within this proxy.
 Performing the reflection inside this proxy and return the data you need.
 Creating a temporary AppDomain and instantiating the assembly proxy in this AppDomain (AppDomain.CreateInstanceFrom).
 Unloading the AppDomain as soon as you finished reflecting.
