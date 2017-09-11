@@ -1,8 +1,8 @@
 //  *****************************************************************************
 //  File:       AssemblyInfo.cs
-//  Solution:   AssemblyInfo
+//  Solution:   AssemblyLoader
 //  Project:    Tests
-//  Date:       09/06/2017
+//  Date:       09/10/2017
 //  Author:     Latency McLaughlin
 //  Copywrite:  Bio-Hazard Industries - 1998-2017
 //  *****************************************************************************

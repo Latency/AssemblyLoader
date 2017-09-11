@@ -1,8 +1,8 @@
 ﻿//  *****************************************************************************
-//  File:       Proxy.cs
-//  Solution:   AssemblyInfo
-//  Project:    AssemblyInfo
-//  Date:       09/07/2017
+//  File:       ProxyClass.cs
+//  Solution:   AssemblyLoader
+//  Project:    AssemblyLoader
+//  Date:       09/10/2017
 //  Author:     Latency McLaughlin
 //  Copywrite:  Bio-Hazard Industries - 1998-2017
 //  *****************************************************************************
@@ -10,8 +10,9 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace AssemblyInfo {
-  [Serializable, ClassInterface(ClassInterfaceType.AutoDual)]
+namespace AssemblyLoader {
+  [Serializable]
+  [ClassInterface(ClassInterfaceType.AutoDual)]
   internal class ProxyClass : MarshalByRefObject, IDisposable {
     public enum InstanceStatus {
       Loaded,
@@ -25,6 +26,7 @@ namespace AssemblyInfo {
 
 
     #region .ctor
+
     // ---------------------------------------------------------------
 
     public ProxyClass() {
@@ -46,14 +48,13 @@ namespace AssemblyInfo {
           ShadowCopyFiles = "true",
           LoaderOptimization = LoaderOptimization.MultiDomainHost
         };
-        if (!string.IsNullOrEmpty(configFile)) {
+        if (!string.IsNullOrEmpty(configFile))
           appDomainInfo.ConfigurationFile = configFile;
-        }
         //lets create the domain
         AtomicAppDomain = AppDomain.CreateDomain(domainName, null, appDomainInfo);
 
         // Instanciate the class.
-        InstancedObject = (ProxyClass)AtomicAppDomain.CreateInstanceFromAndUnwrap(AssemblyFile, typeof(ProxyClass).ToString());
+        InstancedObject = (ProxyClass) AtomicAppDomain.CreateInstanceFromAndUnwrap(AssemblyFile, typeof(ProxyClass).ToString());
         Status = InstanceStatus.Loaded;
       } catch (Exception exception) {
         //There was a problema setting up the new appDomain
@@ -61,10 +62,12 @@ namespace AssemblyInfo {
         LoadingErrors = exception.ToString();
       }
     }
+
     #endregion
 
 
     #region Properties
+
     // ---------------------------------------------------------------
 
     public string AssemblyFile { get; }
@@ -82,10 +85,12 @@ namespace AssemblyInfo {
     public string Path { get; }
 
     // ---------------------------------------------------------------
+
     #endregion Properties
 
 
     #region Methods
+
     // ---------------------------------------------------------------
 
     protected virtual void Dispose(bool disposing) {
@@ -94,7 +99,7 @@ namespace AssemblyInfo {
           // Dispose managed resources.
           AppDomain.Unload(AtomicAppDomain);
         }
-        
+
         _disposed = true;
       }
     }
@@ -106,6 +111,7 @@ namespace AssemblyInfo {
     }
 
     // ---------------------------------------------------------------
+
     #endregion Methods
   }
 }

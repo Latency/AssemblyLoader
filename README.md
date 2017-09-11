@@ -1,6 +1,5 @@
-# AssemblyInfo
-
-### Assembly Information via Reflection
+# AssemblyLoader
+### Assembly Information & Loader via Reflection
 
 ---
 
@@ -8,20 +7,25 @@
 * FRAMEWORK:  .NET 4.7
 * SUPPORTS:   Visual Studio 2017, 2015, 2013, 2012, 2010, 2008
 * UPDATED:    9/9/2017
-* TAGS:       C# .NET AssemblyInfo API
+* TAGS:       C# .NET AssemblyInfo AssemblyLoader API
 * VERSION:    v1.1.6462
 
 <hr>
 
 ## Navigation
-* <a href="#history">History</a>
 * <a href="#introduction">Introduction</a>
+* <a href="#history">History</a>
 * <a href="#solution">Solution</a>
 * <a href="#usage">Usage</a>
 * <a href="#installation">Installation</a>
 * <a href="#license">License</a>
 
 <hr>
+
+<h2><a name="introduction">Introduction</a></h2>
+
+Gets assembly information at runtime commonly found in *Properties* within .NET assemblies.
+Dynamically loads / unloads assemblies and their dependancies within a proxy for validation. 
 
 <h2><a name=history">History</a></h2>
 
@@ -39,10 +43,6 @@ MEF includes a whole ton of custom reflection code to make this work.
 
 Ultimately, you cannot unload an assembly once it has been loaded.
 You need to unload the entire app domain, as described in this [MSDN article].
-
-<h2><a name="introduction">Introduction</a></h2>
-
-Gets assembly manifest information at runtime commonly found in *Properties* within .NET assemblies.
 
 <h2><a name="solution">Solution</a></h2>
 

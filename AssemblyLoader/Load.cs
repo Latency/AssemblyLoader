@@ -1,8 +1,8 @@
 ﻿//  *****************************************************************************
 //  File:       Load.cs
-//  Solution:   AssemblyInfo
-//  Project:    AssemblyInfo
-//  Date:       09/06/2017
+//  Solution:   AssemblyLoader
+//  Project:    AssemblyLoader
+//  Date:       09/10/2017
 //  Author:     Latency McLaughlin
 //  Copywrite:  Bio-Hazard Industries - 1998-2017
 //  *****************************************************************************
@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 
-namespace AssemblyInfo {
+namespace AssemblyLoader {
   public static class Load {
     /// <summary>
     ///   Load`

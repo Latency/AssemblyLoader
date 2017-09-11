@@ -1,10 +1,10 @@
 //  *****************************************************************************
-//  File:      AssemblyInfo.cs
-//  Solution:  AssemblyInfo
-//  Project:   DLL
-//  Date:      01/03/2016
-//  Author:    Latency McLaughlin
-//  Copywrite: Bio-Hazard Industries - 1998-2016
+//  File:       AssemblyInfo.cs
+//  Solution:   AssemblyLoader
+//  Project:    AssemblyLoader
+//  Date:       09/10/2017
+//  Author:     Latency McLaughlin
+//  Copywrite:  Bio-Hazard Industries - 1998-2017
 //  *****************************************************************************
 
 using System.Reflection;
@@ -14,11 +14,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 
-[assembly: AssemblyTitle("AssemblyInfo")]
-[assembly: AssemblyDescription("Assembly Information via Reflection")]
+[assembly: AssemblyTitle("AssemblyLoader")]
+[assembly: AssemblyDescription("Assembly Information & Loader via Reflection")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Bio-Hazard Industries")]
-[assembly: AssemblyProduct("AssemblyInfo")]
+[assembly: AssemblyProduct("AssemblyLoader")]
 [assembly: AssemblyCopyright("Copyright © 1998-2017")]
 [assembly: AssemblyTrademark("Latency McLaughlin")]
 [assembly: AssemblyCulture("")]
