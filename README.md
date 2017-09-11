@@ -7,9 +7,9 @@
 * CREATED BY: Latency McLaughlin
 * FRAMEWORK:  .NET 4.7
 * SUPPORTS:   Visual Studio 2017, 2015, 2013, 2012, 2010, 2008
-* UPDATED:    9/7/2017
+* UPDATED:    9/9/2017
 * TAGS:       C# .NET AssemblyInfo API
-* VERSION:    1.0.6457.35901
+* VERSION:    v1.1.6462
 
 <hr>
 
