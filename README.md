@@ -63,6 +63,7 @@ Trying to access these from another AppDomain (the caller's domain) would result
 - Types called across AppDomain boundaries must inherit MarshalByRefObject.
 - Types called across AppDomain boundaries must be called via an interface.
 - The property LoaderOptimization must be set to LoaderOptimization.MultiDomainHost.
+- Construct a proxy manager that loads assemblies into AppDomains, performs queries, and unloads AppDomains.
 
 <h2><a name="installation">Installation</a></h2>
 
