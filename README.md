@@ -4,11 +4,11 @@
 ---
 
 * CREATED BY: Latency McLaughlin
-* FRAMEWORK:  .NET 4.7
+* FRAMEWORK:  .NET 4.5 / 4.7.2; .NET Standard 2.0; .NET Core 2.1
 * SUPPORTS:   Visual Studio 2017, 2015, 2013, 2012, 2010, 2008
-* UPDATED:    9/9/2017
+* UPDATED:    11/25/2018
 * TAGS:       C# .NET AssemblyInfo AssemblyLoader API
-* VERSION:    v1.1.6462
+* VERSION:    v1.1.3
 
 <hr>
 
@@ -67,11 +67,7 @@ Trying to access these from another AppDomain (the caller's domain) would result
 
 <h2><a name="installation">Installation</a></h2>
 
-This library can be installed using NuGet:
-
-Enter the details:
-Name:    AssemblyLoader
-Source:  nuget.org
+This library can be installed using NuGet found [here](https://www.nuget.org/packages/AssemblyLoader/).
 
 <h2><a name="license">License</a></h2>
 
