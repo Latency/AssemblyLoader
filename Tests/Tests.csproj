@@ -3,7 +3,7 @@
     <TargetFrameworks>net472;net45;netstandard2.0;netcoreapp2.1</TargetFrameworks>
     <RootNamespace>Tests</RootNamespace>
     <AssemblyName>Tests</AssemblyName>
-    <Version>1.1.2</Version>
+    <Version>1.1.3</Version>
     <Authors>Latency McLaughlin</Authors>
     <Company>Bio-Hazard Industries</Company>
     <Description>Assembly Information &amp; Loader via Reflection</Description>
