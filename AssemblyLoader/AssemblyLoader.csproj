@@ -1,60 +1,25 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{958560DB-A618-486D-8CF3-A6456C4482B1}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <TargetFrameworks>net472;net45;netstandard2.0;netcoreapp2.1</TargetFrameworks>
     <RootNamespace>AssemblyLoader</RootNamespace>
     <AssemblyName>AssemblyLoader</AssemblyName>
+    <Version>1.1.2</Version>
+    <Authors>Latency McLaughlin</Authors>
+    <Company>Bio-Hazard Industries</Company>
+    <Description>Assembly Information &amp; Loader via Reflection</Description>
+    <Copyright>Copyright © 1998-2019</Copyright>
+    <PackageLicenseUrl>http://www.gnu.org/licenses/gpl-3.0.en.html</PackageLicenseUrl>
+    <PackageProjectUrl>http://latency.github.io/AssemblyLoader/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Latency/AssemblyLoader</RepositoryUrl>
+    <PackageIconUrl>http://bio-hazard.us/ico/kitty.ico</PackageIconUrl>
+    <RepositoryType>GIT</RepositoryType>
+    <PackageTags>AssemblyLoader C# AssemblyInfo</PackageTags>
+    <PackageReleaseNotes>Port to .NET Standard &amp; Core 2.1</PackageReleaseNotes>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>snKey.snk</AssemblyOriginatorKeyFile>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
+    <DelaySign>false</DelaySign>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <NeutralLanguage>en</NeutralLanguage>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\$(Configuration)\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;NET47</DefineConstants>
-    <Optimize>false</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Load.cs" />
-    <Compile Include="Extensions.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ProxyClass.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="snKey.snk" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- Code to merge the assemblies into one:setup.exe -->
-  <PropertyGroup>
-    <ILMergeTarget>..\NuGet\ILMerge.targets</ILMergeTarget>
-  </PropertyGroup>
-  <Target Name="ILMerge" />
-  <Import Project="$(ILMergeTarget)" Condition="Exists('$(ILMergeTarget)')" />
-  <Target Name="AfterBuild" DependsOnTargets="ILMerge" />
-  <Target Name="Clean">
-    <RemoveDir Directories="bin;obj" />
-    <RemoveDir Directories="..\NuGet\lib\;..\NuGet\bin\;..\NuGet\obj\" Condition="Exists('$(ILMergeTarget)')" />
-  </Target>
 </Project>

@@ -1,11 +1,11 @@
-﻿//  *****************************************************************************
-//  File:       Program.cs
-//  Solution:   AssemblyLoader
-//  Project:    Tests
-//  Date:       09/10/2017
-//  Author:     Latency McLaughlin
-//  Copywrite:  Bio-Hazard Industries - 1998-2017
-//  *****************************************************************************
+﻿// *****************************************************************************
+// File:       Program.cs
+// Solution:   AssemblyLoader
+// Project:    Tests
+// Date:       11/25/2018
+// Author:     Latency McLaughlin
+// Copywrite:  Bio-Hazard Industries - 1998-2018
+// ***************************************************************************** 
 
 using System;
 using System.IO;
@@ -24,21 +24,21 @@ namespace Tests {
           if (stream != null) {
             // Test overload +1 - Stream
             var asm = AssemblyLoader.Load.Assembly(stream);
-            Console.WriteLine(asm.FullName);
+            Console.WriteLine("Stream Test:  " + (!string.IsNullOrEmpty(asm?.FullName) ? "Success" : "Fail"));
 
             var data = new byte[stream.Length];
             stream.Seek(0, SeekOrigin.Begin);
             stream.Read(data, 0, data.Length);
             // Test overload +2 - byte[]
             asm = AssemblyLoader.Load.Assembly(data);
-            Console.WriteLine(asm.FullName);
+            Console.WriteLine("Byte[] Test:  " + (!string.IsNullOrEmpty(asm?.FullName) ? "Success" : "Fail"));
 
             // These next one should always be null, since there are no embedded assemblies within AssemblyInfo or contains the name like that found in Tests. 
             // Since we are running these with VST in a proxy rather than assemblies loaded in the executing assembly, loaded assemblies can not be unloaded
             // without bringing down the domain.   There must be a host domain to call our methods.
             //
-            // I will leaving this one in for backwords compatability, which will mean that any local reference assembly will need to be converted from <string>
-            // to <AssemblyName> in order to be used and overload the <string> calling convention.   This should always fail as no dependancies exist.
+            // I will leaving this one in for backwards compatibility, which will mean that any local reference assembly will need to be converted from <string>
+            // to <AssemblyName> in order to be used and overload the <string> calling convention.   This should always fail as no dependencies exist.
 
             // Test overload +3 - AssemblyName
             asm = AssemblyLoader.Load.Assembly(asm.GetName());
@@ -54,7 +54,7 @@ namespace Tests {
 
             // Test overload +4 - string
             asm = AssemblyLoader.Load.Assembly(fileName);
-            Console.WriteLine(asm.FullName);
+            Console.WriteLine("FileName Test:  " + (!string.IsNullOrEmpty(asm?.FullName) ? "Success" : "Fail"));
           }
         }
     }

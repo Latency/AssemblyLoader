@@ -1,11 +1,11 @@
-//  *****************************************************************************
-//  File:       Extensions.cs
-//  Solution:   AssemblyLoader
-//  Project:    AssemblyLoader
-//  Date:       09/10/2017
-//  Author:     Latency McLaughlin
-//  Copywrite:  Bio-Hazard Industries - 1998-2017
-//  *****************************************************************************
+// *****************************************************************************
+// File:       Extensions.cs
+// Solution:   AssemblyLoader
+// Project:    AssemblyLoader
+// Date:       11/25/2018
+// Author:     Latency McLaughlin
+// Copywrite:  Bio-Hazard Industries - 1998-2018
+// ***************************************************************************** 
 
 using System;
 using System.Reflection;
@@ -43,57 +43,41 @@ namespace AssemblyLoader {
     /// <summary>
     ///   Gets the title property
     /// </summary>
-    public static string ProductTitle(this Assembly asm) {
-      return asm != null && asm.IsDefined(typeof(AssemblyTitleAttribute), false) ? asm.GetAttributeValue<AssemblyTitleAttribute, string>(a => a.Title) : string.Empty;
-    }
+    public static string ProductTitle(this Assembly asm) => asm != null && asm.IsDefined(typeof(AssemblyTitleAttribute), false) ? asm.GetAttributeValue<AssemblyTitleAttribute, string>(a => a.Title) : string.Empty;
 
     /// <summary>
     ///   Gets the application's assembly version
     /// </summary>
-    public static string AssemblyVersion(this Assembly asm) {
-      return asm?.GetName().Version.ToString() ?? string.Empty;
-    }
+    public static string AssemblyVersion(this Assembly asm) => asm?.GetName().Version.ToString() ?? string.Empty;
 
     /// <summary>
     ///   Gets the application's file version
     /// </summary>
-    public static string AssemblyFileVersion(this Assembly asm) {
-      return asm != null && asm.IsDefined(typeof(AssemblyFileVersionAttribute), false) ? asm.GetAttributeValue<AssemblyFileVersionAttribute, string>(a => a.Version) : string.Empty;
-    }
+    public static string AssemblyFileVersion(this Assembly asm) => asm != null && asm.IsDefined(typeof(AssemblyFileVersionAttribute), false) ? asm.GetAttributeValue<AssemblyFileVersionAttribute, string>(a => a.Version) : string.Empty;
 
     /// <summary>
     ///   Gets the description about the application.
     /// </summary>
-    public static string Description(this Assembly asm) {
-      return asm != null && asm.IsDefined(typeof(AssemblyDescriptionAttribute), false) ? asm.GetAttributeValue<AssemblyDescriptionAttribute, string>(a => a.Description) : string.Empty;
-    }
+    public static string Description(this Assembly asm) => asm != null && asm.IsDefined(typeof(AssemblyDescriptionAttribute), false) ? asm.GetAttributeValue<AssemblyDescriptionAttribute, string>(a => a.Description) : string.Empty;
 
     /// <summary>
     ///   Gets the product's full name.
     /// </summary>
-    public static string Product(this Assembly asm) {
-      return asm != null && asm.IsDefined(typeof(AssemblyProductAttribute), false) ? asm.GetAttributeValue<AssemblyProductAttribute, string>(a => a.Product) : string.Empty;
-    }
+    public static string Product(this Assembly asm) => asm != null && asm.IsDefined(typeof(AssemblyProductAttribute), false) ? asm.GetAttributeValue<AssemblyProductAttribute, string>(a => a.Product) : string.Empty;
 
     /// <summary>
     ///   Gets the copyright information for the product.
     /// </summary>
-    public static string Copyright(this Assembly asm) {
-      return asm != null && asm.IsDefined(typeof(AssemblyCopyrightAttribute), false) ? asm.GetAttributeValue<AssemblyCopyrightAttribute, string>(a => a.Copyright) : string.Empty;
-    }
+    public static string Copyright(this Assembly asm) => asm != null && asm.IsDefined(typeof(AssemblyCopyrightAttribute), false) ? asm.GetAttributeValue<AssemblyCopyrightAttribute, string>(a => a.Copyright) : string.Empty;
 
     /// <summary>
     ///   Gets the company information for the product.
     /// </summary>
-    public static string Company(this Assembly asm) {
-      return asm != null && asm.IsDefined(typeof(AssemblyCompanyAttribute), false) ? asm.GetAttributeValue<AssemblyCompanyAttribute, string>(a => a.Company) : string.Empty;
-    }
+    public static string Company(this Assembly asm) => asm != null && asm.IsDefined(typeof(AssemblyCompanyAttribute), false) ? asm.GetAttributeValue<AssemblyCompanyAttribute, string>(a => a.Company) : string.Empty;
 
     /// <summary>
     ///   Gets the trademark information for the product.
     /// </summary>
-    public static string Trademark(this Assembly asm) {
-      return asm != null && asm.IsDefined(typeof(AssemblyTrademarkAttribute), false) ? asm.GetAttributeValue<AssemblyTrademarkAttribute, string>(a => a.Trademark) : string.Empty;
-    }
+    public static string Trademark(this Assembly asm) => asm != null && asm.IsDefined(typeof(AssemblyTrademarkAttribute), false) ? asm.GetAttributeValue<AssemblyTrademarkAttribute, string>(a => a.Trademark) : string.Empty;
   }
 }

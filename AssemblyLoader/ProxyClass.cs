@@ -1,18 +1,16 @@
-﻿//  *****************************************************************************
-//  File:       ProxyClass.cs
-//  Solution:   AssemblyLoader
-//  Project:    AssemblyLoader
-//  Date:       09/10/2017
-//  Author:     Latency McLaughlin
-//  Copywrite:  Bio-Hazard Industries - 1998-2017
-//  *****************************************************************************
+﻿// *****************************************************************************
+// File:       ProxyClass.cs
+// Solution:   AssemblyLoader
+// Project:    AssemblyLoader
+// Date:       11/25/2018
+// Author:     Latency McLaughlin
+// Copywrite:  Bio-Hazard Industries - 1998-2018
+// ***************************************************************************** 
 
 using System;
-using System.Runtime.InteropServices;
 
 namespace AssemblyLoader {
   [Serializable]
-  [ClassInterface(ClassInterfaceType.AutoDual)]
   internal class ProxyClass : MarshalByRefObject, IDisposable {
     public enum InstanceStatus {
       Loaded,
@@ -40,6 +38,7 @@ namespace AssemblyLoader {
         AssemblyFileName = System.IO.Path.GetFileName(AssemblyFile); //assmbly file name
         Path = System.IO.Path.GetDirectoryName(AssemblyFile); //get root directory from assembly path
 
+#if (NET475 || NET472)
         //start to configure domain
         var appDomainInfo = new AppDomainSetup {
           ApplicationBase = Path,
@@ -50,12 +49,14 @@ namespace AssemblyLoader {
         };
         if (!string.IsNullOrEmpty(configFile))
           appDomainInfo.ConfigurationFile = configFile;
+
         //lets create the domain
         AtomicAppDomain = AppDomain.CreateDomain(domainName, null, appDomainInfo);
 
         // Instanciate the class.
         InstancedObject = (ProxyClass) AtomicAppDomain.CreateInstanceFromAndUnwrap(AssemblyFile, typeof(ProxyClass).ToString());
         Status = InstanceStatus.Loaded;
+#endif
       } catch (Exception exception) {
         //There was a problema setting up the new appDomain
         Status = InstanceStatus.Error;
@@ -95,10 +96,7 @@ namespace AssemblyLoader {
 
     protected virtual void Dispose(bool disposing) {
       if (!_disposed) {
-        if (disposing) {
-          // Dispose managed resources.
-          AppDomain.Unload(AtomicAppDomain);
-        }
+        if (disposing) AppDomain.Unload(AtomicAppDomain);
 
         _disposed = true;
       }
