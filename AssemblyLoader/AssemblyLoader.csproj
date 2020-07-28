@@ -1,29 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   
   <PropertyGroup>
-    <OutputType>Library</OutputType>
-    <TargetFrameworks>netcoreapp2.2;netcoreapp3.0;netstandard2.0;net45;net461;net472;net48</TargetFrameworks>
-    <Version>1.1.4</Version>
-    <Authors>Latency McLaughlin</Authors>
-    <Company>Bio-Hazard Industries</Company>
+    <TargetFrameworks>netcoreapp3.1;netstandard2.1;net45;net461;net472;net48;net5.0</TargetFrameworks>
+    <Version>1.1.5</Version>
     <Description>Assembly Information &amp; Loader via Reflection</Description>
-    <Copyright>Copyright © 1998-2019</Copyright>
     <PackageProjectUrl>http://latency.github.io/AssemblyLoader/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Latency/AssemblyLoader</RepositoryUrl>
-    <PackageIconUrl>http://bio-hazard.us/ico/kitty.ico</PackageIconUrl>
-    <RepositoryType>GIT</RepositoryType>
     <PackageTags>AssemblyLoader C# AssemblyInfo</PackageTags>
-    <PackageReleaseNotes>Update target framework to include 4.5 - 4.8, and Core 2.2 / 3.0.</PackageReleaseNotes>
-    <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>Properties\snKey.pfx</AssemblyOriginatorKeyFile>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <ArtifactsDirName>Artifacts</ArtifactsDirName>
+    <PackageReleaseNotes>Update target framework to include 5.0, and Core 3.1.</PackageReleaseNotes>
   </PropertyGroup>
 
   <!-- @@ -->
-  <Target Name="CreateArtifactsDirectoryIfNotExists" Condition="!Exists('$(MSBuildProjectDirectory)\..\$(ArtifactsDirName)')">
+  <!--<Target Name="CreateArtifactsDirectoryIfNotExists" Condition="!Exists('$(MSBuildProjectDirectory)\..\$(ArtifactsDirName)')">
     <Message Text="Creating artifacts directory -&gt; '$(MSBuildProjectDirectory)\..\$(ArtifactsDirName)\'" Importance="high" />
     <MakeDir Directories="$(MSBuildProjectDirectory)\..\$(ArtifactsDirName)" />
   </Target>
@@ -32,6 +20,6 @@
     <CallTarget Targets="CreateArtifactsDirectoryIfNotExists" />
     <Message Text="Copying artifact `.\bin\$(Configuration)\$(PackageId).$(PackageVersion).nupkg' to directory `$(MSBuildProjectDirectory)\..\$(ArtifactsDirName)\'" Importance="high" />
     <Copy SourceFiles=".\bin\$(Configuration)\$(PackageId).$(PackageVersion).nupkg" DestinationFolder="$(MSBuildProjectDirectory)\..\$(ArtifactsDirName)" />
-  </Target>
+  </Target>-->
   
 </Project>

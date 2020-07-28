@@ -27,14 +27,10 @@ namespace AssemblyLoader {
     /// </param>
     /// <returns>The retrieved value or <see langword="null" /> if no <typeparamref name="TAttribute" /> was found.</returns>
     public static TValue GetAttributeValue<TAttribute, TValue>(this Assembly assembly, Func<TAttribute, TValue> valueRetrieval) where TAttribute : Attribute {
-      #region Sanity checks
-
       if (assembly == null)
         throw new ArgumentNullException(nameof(assembly));
       if (valueRetrieval == null)
         throw new ArgumentNullException(nameof(valueRetrieval));
-
-      #endregion
 
       var attributes = assembly.GetCustomAttributes(typeof(TAttribute), false);
       return attributes.Length > 0 ? valueRetrieval((TAttribute) attributes[0]) : default(TValue);
@@ -48,7 +44,7 @@ namespace AssemblyLoader {
     /// <summary>
     ///   Gets the application's assembly version
     /// </summary>
-    public static string AssemblyVersion(this Assembly asm) => asm?.GetName().Version.ToString() ?? string.Empty;
+    public static string AssemblyVersion(this Assembly asm) => asm?.GetName().Version?.ToString() ?? string.Empty;
 
     /// <summary>
     ///   Gets the application's file version
