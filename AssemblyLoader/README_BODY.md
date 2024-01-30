@@ -1,25 +1,3 @@
-﻿# AssemblyLoader
-### Assembly Information & Loader via Reflection
-
-
----
-
-
-|              |   Description                                                  |
-|--------------|----------------------------------------------------------------|
-| CREATED BY:  | Latency McLaughlin                                                     |
-| UPDATED:     | 2/2/2024                          |
-| FRAMEWORK:   | [net452], [netstandard2.0], [netstandard2.1] ([Latest])                                |
-| LANGUAGE:    | [C#] preview                                            |
-| OUTPUT TYPE: | Library [API]                                            |
-| SUPPORTS:    | [Visual Studio]                                                |
-| GFX SUBSYS:  | [None]                                                     |
-| TAGS:        | [AssemblyLoader C# AssemblyInfo]                                                |
-| STATUS       | [![.NET](https://github.com/Latency/AssemblyLoader/actions/workflows/dotnet.yml/badge.svg)](https://github.com/Latency/AssemblyLoader/actions/workflows/dotnet.yml)                                                     |
-| LICENSE:     | [![License](https://img.shields.io/badge/MIT-License-yellowgreen.svg)](https://github.com/Latency/AssemblyLoader/blob/master/LICENSE)                                                    |
-| VERSION:     | [![GitHub release](https://img.shields.io/github/release/Latency/AssemblyLoader.svg)](https://github.com/Latency/AssemblyLoader/releases)                                                    |
-
-
 <hr>
 
 ## Navigation
