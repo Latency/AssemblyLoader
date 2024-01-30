@@ -1,25 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  
-  <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.1;netstandard2.1;net45;net461;net472;net48;net5.0</TargetFrameworks>
-    <Version>1.1.5</Version>
-    <Description>Assembly Information &amp; Loader via Reflection</Description>
-    <PackageProjectUrl>http://latency.github.io/AssemblyLoader/</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/Latency/AssemblyLoader</RepositoryUrl>
-    <PackageTags>AssemblyLoader C# AssemblyInfo</PackageTags>
-    <PackageReleaseNotes>Update target framework to include 5.0, and Core 3.1.</PackageReleaseNotes>
-  </PropertyGroup>
 
-  <!-- @@ -->
-  <!--<Target Name="CreateArtifactsDirectoryIfNotExists" Condition="!Exists('$(MSBuildProjectDirectory)\..\$(ArtifactsDirName)')">
-    <Message Text="Creating artifacts directory -&gt; '$(MSBuildProjectDirectory)\..\$(ArtifactsDirName)\'" Importance="high" />
-    <MakeDir Directories="$(MSBuildProjectDirectory)\..\$(ArtifactsDirName)" />
-  </Target>
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+		<TargetFrameworks>net452;netstandard2.0;netstandard2.1</TargetFrameworks>
+		<Version>1.2.0</Version>
+		<Description>Assembly Information &amp; Loader via Reflection</Description>
+		<PackageTags>AssemblyLoader C# AssemblyInfo</PackageTags>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<PackageReleaseNotes>Update target framework to include .NET 9.0.</PackageReleaseNotes>
+		<RepositoryLicenseUrl>https://github.com/Latency/AssemblyLoader/blob/master/MIT-LICENSE.txt</RepositoryLicenseUrl>
+		<RepositoryReleasesUrl>https://github.com/Latency/AssemblyLoader/releases</RepositoryReleasesUrl>
+	</PropertyGroup>
 
-  <Target Name="PostPublish" AfterTargets="Pack" Condition=" '$(GeneratePackageOnBuild)' == 'true' ">
-    <CallTarget Targets="CreateArtifactsDirectoryIfNotExists" />
-    <Message Text="Copying artifact `.\bin\$(Configuration)\$(PackageId).$(PackageVersion).nupkg' to directory `$(MSBuildProjectDirectory)\..\$(ArtifactsDirName)\'" Importance="high" />
-    <Copy SourceFiles=".\bin\$(Configuration)\$(PackageId).$(PackageVersion).nupkg" DestinationFolder="$(MSBuildProjectDirectory)\..\$(ArtifactsDirName)" />
-  </Target>-->
-  
 </Project>
