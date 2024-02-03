@@ -26,7 +26,7 @@ jobs:
 
     - uses: actions/checkout@v4.1.1
       with:
-        repository: ${{ github.repository_owner }}/Build-Config
+        repository: ${{ github.repository_owner }}/Build-Configs
         token: ${{ secrets.NUGET_AUTH_TOKEN }}
         sparse-checkout: |
           Directory.Build.Props
