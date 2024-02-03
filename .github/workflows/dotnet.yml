@@ -23,6 +23,14 @@ jobs:
     steps:
 
     - uses: actions/checkout@v4.1.1
+
+    - uses: actions/checkout@v4.1.1
+      with:
+        repository: ${{ github.repository_owner }}/Build-Config
+        token: ${{ secrets.NUGET_AUTH_TOKEN }}
+        sparse-checkout: |
+          Directory.Build.Props
+          Directory.Build.Targets
         
     - uses: actions/setup-dotnet@v4.0.0
       with:
