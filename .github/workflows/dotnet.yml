@@ -65,7 +65,7 @@ jobs:
 
     - name: Get Build Artifacts
       run: |
-        cd ${{ env.PROJECT_NAME }} && { curl -O -L 'https://github.com/${{ github.repository_owner }}/Build-Configs/blob/master/{Directory.Build.props,Directory.Build.targets}' ; cd -; }
+        cd ${{ env.PROJECT_NAME }} && { curl -sS -O -L 'https://github.com/${{ github.repository_owner }}/Build-Configs/blob/master/{Directory.Build.props,Directory.Build.targets}' ; cd -; }
 
     - name: Build
       id: build
