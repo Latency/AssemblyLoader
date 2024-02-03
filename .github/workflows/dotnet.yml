@@ -38,7 +38,12 @@ jobs:
         source-url: ${{ env.NUGET_SERVER_URL }}
       env:
         NUGET_AUTH_TOKEN: ${{ secrets.NUGET_AUTH_TOKEN }}
-      
+
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v2
+      with:
+        vs-prerelease: true
+    
     - name: Restore dependencies
       run: dotnet restore
            
