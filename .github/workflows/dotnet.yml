@@ -24,10 +24,6 @@ jobs:
 
     - uses: actions/checkout@v4.1.1
 
-    - name: Get Build Artifacts
-      run: |
-        cd AssemblyLoader && { curl -O -L 'https://github.com/${{ github.repository_owner }}/Build-Configs/blob/master/{Directory.Build.props,Directory.Build.targets}' ; cd -; }
-          
     - name: Display structure of downloaded files
       run: ls -R .
              
@@ -42,11 +38,6 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
            
-    - name: Build
-      id: build
-      run: |
-        dotnet build --no-restore --configuration ${{ matrix.BuildConfiguration }}
-
     - name: Get BRANCH_NAME
       id: branch-name
       run: |
@@ -71,7 +62,16 @@ jobs:
         bin_dir=${{ github.workspace }}/${{ env.PROJECT_NAME }}/bin/${{ matrix.BuildConfiguration }}/
         echo "$bin_dir"
         echo "BIN_DIR=$bin_dir" >> $GITHUB_ENV
-          
+
+    - name: Get Build Artifacts
+      run: |
+        curl -O ${{ env.PROJECT_NAME }} -L 'https://github.com/${{ github.repository_owner }}/Build-Configs/blob/master/{Directory.Build.props,Directory.Build.targets}' 2>/dev/null
+
+    - name: Build
+      id: build
+      run: |
+        dotnet build --no-restore --configuration ${{ matrix.BuildConfiguration }}
+        
     - name: Get PACKAGE_NAME
       id: package-name
       run: |
