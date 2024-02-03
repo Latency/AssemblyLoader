@@ -28,7 +28,7 @@ jobs:
       run: |
         curl -H 'Authorization: token ${{ secrets.NUGET_AUTH_TOKEN }}' \
           -O \
-          -L https://github.com/${{ github.repository_owner }}/Build-Configs/blob/master/{Directory.Build.props, Directory.Build.targets}
+          -L 'https://github.com/${{ github.repository_owner }}/Build-Configs/blob/master/{Directory.Build.props, Directory.Build.targets}'
           
     - name: Display structure of downloaded files
       run: ls -R .
