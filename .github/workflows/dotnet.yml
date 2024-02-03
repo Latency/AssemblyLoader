@@ -34,10 +34,7 @@ jobs:
         source-url: ${{ env.NUGET_SERVER_URL }}
       env:
         NUGET_AUTH_TOKEN: ${{ secrets.NUGET_AUTH_TOKEN }}
-    
-    - name: Restore dependencies
-      run: dotnet restore
-           
+              
     - name: Get BRANCH_NAME
       id: branch-name
       run: |
@@ -67,6 +64,9 @@ jobs:
       run: |
         cd ${{ env.PROJECT_NAME }} && { curl -sS -O -L 'https://github.com/${{ github.repository_owner }}/Build-Configs/blob/master/{Directory.Build.props,Directory.Build.targets}' ; cd -; }
 
+    - name: Restore dependencies
+      run: dotnet restore
+      
     - name: Build
       id: build
       run: |
