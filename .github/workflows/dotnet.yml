@@ -24,14 +24,21 @@ jobs:
 
     - uses: actions/checkout@v4.1.1
 
-    - uses: actions/checkout@v4.1.1
+    - uses: actions/download-artifact@v4.1.1
       with:
+        name: Directory.Build.Props
         repository: ${{ github.repository_owner }}/Build-Configs
-        token: ${{ secrets.NUGET_AUTH_TOKEN }}
-        sparse-checkout: |
-          Directory.Build.Props
-          Directory.Build.Targets
+        github-token: ${{ secrets.NUGET_AUTH_TOKEN }}
+
+    - uses: actions/download-artifact@v4.1.1
+      with:
+        name: Directory.Build.Targets
+        repository: ${{ github.repository_owner }}/Build-Configs
+        github-token: ${{ secrets.NUGET_AUTH_TOKEN }}    
         
+    - name: Display structure of downloaded files
+      run: ls -R path/to/artifacts
+             
     - uses: actions/setup-dotnet@v4.0.0
       with:
         dotnet-version: '8.0.x'
