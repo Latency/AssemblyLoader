@@ -45,6 +45,7 @@ jobs:
         echo "BRANCH_NAME=$branch_name" >> $GITHUB_ENV
         
     - name: Get PROJECT_NAME
+    
       id: project-name
       run: |
         split=(${GITHUB_REPOSITORY//\// })
