@@ -60,7 +60,8 @@ jobs:
         if [ "$RUNNER_OS" == "Linux" ]; then
           split=(${GITHUB_REPOSITORY//\// })
         elif [ "$RUNNER_OS" == "Windows" ]; then
-          split=(${GITHUB_REPOSITORY////// })
+                echo ${GITHUB_REPOSITORY}
+          #split=(${GITHUB_REPOSITORY////// })
         else
           echo "$RUNNER_OS not supported"
           exit 1
