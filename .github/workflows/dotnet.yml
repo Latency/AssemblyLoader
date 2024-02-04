@@ -134,9 +134,9 @@ jobs:
       shell: bash
       run: |
         if [ "$RUNNER_OS" == "Linux" ]; then
-          package_path='${BIN_DIR}/${{ env.PACKAGE_NAME }}'
+          package_path=$BIN_DIR/${{ env.PACKAGE_NAME }}'
         elif [ "$RUNNER_OS" == "Windows" ]; then
-          package_path='${BIN_DIR}\\${{ env.PACKAGE_NAME }}'
+          package_path=$BIN_DI}\\${{ env.PACKAGE_NAME }}'
         else
           echo "$RUNNER_OS not supported"
           exit 1
