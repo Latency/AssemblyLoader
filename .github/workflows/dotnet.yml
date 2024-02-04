@@ -115,7 +115,7 @@ jobs:
           echo "$RUNNER_OS not supported"
           exit 1
         fi
-        package_name=$(basename $(package_fullpath))
+        package_name=$(basename ${package_fullpath})
         echo "$package_name"
         echo "PACKAGE_NAME=$package_name" >> $GITHUB_ENV
                
