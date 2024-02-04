@@ -15,7 +15,7 @@ jobs:
       pull-requests: write # write permission is required for autolabeler otherwise, read permission is required at least
     strategy:
         matrix:
-            os: [ubuntu-latest, windows-latest]
+            os: ubuntu-latest # [ubuntu-latest, windows-latest]
             BuildConfiguration: [ Release ]
         max-parallel: 2
 
@@ -107,7 +107,7 @@ jobs:
       id: package-name
       shell: bash
       run: |
-        package=(ls '${{ env.BIN_DIR }}*.nupkg' | head -n 1)
+        package=`ls '${{ env.BIN_DIR }}*.nupkg` | head -n 1
         package_name=$(basename $package)
         echo "$package_name"
         echo "PACKAGE_NAME=$package_name" >> $GITHUB_ENV
