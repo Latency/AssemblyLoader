@@ -63,7 +63,7 @@ jobs:
     - name: Get Build Artifacts
       run: |
         cd ..
-        curl -sS -O -L 'https://github.com/${{ github.repository_owner }}/Build-Configs/blob/master/{Directory.Build.props,Directory.Build.targets,snKey.snk}'
+        curl -sS -O -L 'https://github.com/${{ github.repository_owner }}/Build-Configs/blob/master/{Directory.Build.props,Directory.Build.targets,snKey.snk,Kitty.png}'
         mkdir -p Packages
         cd -
 
