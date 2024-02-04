@@ -9,13 +9,14 @@ on:
     
 jobs:
   build:
-    BuildConfiguration: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
     permissions:
       contents: write      # write permission is required to create a github release
       pull-requests: write # write permission is required for autolabeler otherwise, read permission is required at least
     strategy:
         matrix:
             os: [ubuntu-latest, windows-latest]
+            BuildConfiguration: [ Release ]
         max-parallel: 2
 
     steps:
