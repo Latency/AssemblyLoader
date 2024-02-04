@@ -108,9 +108,9 @@ jobs:
       shell: bash
       run: |
         if [ "$RUNNER_OS" == "Linux" ]; then
-          entry=`ls ${{ env.BIN_DIR }}/*.nupkg | head -n 1`
+          entry=`ls ${{ env.BIN_DIR }}*.nupkg | head -n 1`
         elif [ "$RUNNER_OS" == "Windows" ]; then
-          entry=`ls ${{ env.BIN_DIR }}\*.nupkg | head -n 1`
+          entry=`ls ${{ env.BIN_DIR }}*.nupkg | head -n 1`
         else
           echo "$RUNNER_OS not supported"
           exit 1
