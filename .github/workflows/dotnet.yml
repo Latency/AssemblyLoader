@@ -108,14 +108,14 @@ jobs:
       shell: bash
       run: |
        if [ "$RUNNER_OS" == "Linux" ]; then
-          package_name=$(basename `ls '${{ env.BIN_DIR }}/*.nupkg' | head -n 1`)
+          package=`ls '${{ env.BIN_DIR }}/*.nupkg' | head -n 1`
         elif [ "$RUNNER_OS" == "Windows" ]; then
-          package_name=$(basename `ls '${{ env.BIN_DIR }}\\*.nupkg' | head -n 1`)
+          package=`ls '${{ env.BIN_DIR }}\\*.nupkg' | head -n 1`
         else
           echo "$RUNNER_OS not supported"
           exit 1
         fi
-
+        package_name=$(basename "$package")
         echo "$package_name"
         echo "PACKAGE_NAME=$package_name" >> $GITHUB_ENV
                
