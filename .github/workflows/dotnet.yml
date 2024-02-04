@@ -78,7 +78,7 @@ jobs:
         if [ "$RUNNER_OS" == "Linux" ]; then
           bin_dir='${{ github.workspace }}/${{ env.PROJECT_NAME }}/bin/${{ matrix.BuildConfiguration }}/'
         elif [ "$RUNNER_OS" == "Windows" ]; then
-          bin_dir='${{ github.workspace }}\${{ env.PROJECT_NAME }}\bin\${{ matrix.BuildConfiguration }}\'
+          bin_dir='${{ github.workspace }}\\${{ env.PROJECT_NAME }}\\bin\\${{ matrix.BuildConfiguration }}\'
         else
           echo "$RUNNER_OS not supported"
           exit 1
@@ -134,9 +134,9 @@ jobs:
       shell: bash
       run: |
         if [ "$RUNNER_OS" == "Linux" ]; then
-          package_path='${{ env.PROJECT_NAME }}/bin/${{ matrix.BuildConfiguration }}/${{ env.PACKAGE_NAME }}'
+          package_path='$BIN_DIR/${{ env.PACKAGE_NAME }}'
         elif [ "$RUNNER_OS" == "Windows" ]; then
-          package_path='${{ env.PROJECT_NAME }}\bin\${{ matrix.BuildConfiguration }}\${{ env.PACKAGE_NAME }}'
+          package_path='$BIN_DIR\\${{ env.PACKAGE_NAME }}'
         else
           echo "$RUNNER_OS not supported"
           exit 1
@@ -151,7 +151,7 @@ jobs:
         if [ "$RUNNER_OS" == "Linux" ]; then
           path='${{ github.workspace }}/${{ env.PROJECT_NAME }}'
         elif [ "$RUNNER_OS" == "Windows" ]; then
-          path='${{ github.workspace }}\${{ env.PROJECT_NAME }}'
+          path='${{ github.workspace }}\\${{ env.PROJECT_NAME }}'
         else
           echo "$RUNNER_OS not supported"
           exit 1
