@@ -7,6 +7,8 @@ jobs:
   build:
     runs-on:
       - ubuntu-latest
+      - windows-latest
+      
     permissions:
       actions: write
       contents: read
@@ -18,9 +20,9 @@ jobs:
       shell: bash
       run: |
         if [ "$RUNNER_OS" == "Linux" ]; then
-          bin_dir='${{ github.workspace }}/AssemblyLoader/bin/${{ matrix.BuildConfiguration }}/'
+          bin_dir='${{ github.workspace }}/AssemblyLoader/bin/${{ matrix.BuildConfiguration }}'
         elif [ "$RUNNER_OS" == "Windows" ]; then
-          bin_dir='${{ github.workspace }}\AssemblyLoader\bin\${{ matrix.BuildConfiguration }}\'
+          bin_dir='${{ github.workspace }}\AssemblyLoader\bin\${{ matrix.BuildConfiguration }}'
         else
           echo "$RUNNER_OS not supported"
           exit 1
