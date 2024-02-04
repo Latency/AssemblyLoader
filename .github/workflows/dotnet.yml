@@ -25,6 +25,7 @@ jobs:
     - uses: actions/checkout@v4.1.1
 
     - name: Display structure of downloaded files
+      if: false
       run: ls -R .
              
     - uses: actions/setup-dotnet@v4.0.0
@@ -55,7 +56,14 @@ jobs:
     - name: Get PROJECT_NAME
       id: project-name
       run: |
-        split=(${GITHUB_REPOSITORY//\// })
+        if [ "$RUNNER_OS" == "Linux" ]; then
+          split=(${GITHUB_REPOSITORY//\// })
+        elif [ "$RUNNER_OS" == "Windows" ]; then
+          split=(${GITHUB_REPOSITORY////// })
+        else
+          echo "$RUNNER_OS not supported"
+          exit 1
+        fi
         index=$((${#split[@]}-1))
         project_tag=${split[$index]}
         echo "$project_tag"
