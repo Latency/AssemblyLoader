@@ -38,6 +38,14 @@ jobs:
     - name: Get BRANCH_NAME
       id: branch-name
       run: |
+        if [ "$RUNNER_OS" == "Linux" ]; then
+          split=(${GITHUB_REF_NAME//\// })
+        elif [ "$RUNNER_OS" == "Windows" ]; then
+          split=(${GITHUB_REF_NAME////// })
+        else
+          echo "$RUNNER_OS not supported"
+          exit 1
+        fi
         split=(${GITHUB_REF_NAME//\// })
         index=$((${#split[@]}-1))
         branch_name=${split[$index]}
