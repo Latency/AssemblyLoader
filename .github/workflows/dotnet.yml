@@ -79,7 +79,7 @@ jobs:
         if [ "$RUNNER_OS" == "Linux" ]; then
           bin_dir='${{ github.workspace }}/${{ env.PROJECT_NAME }}/bin/${{ matrix.BuildConfiguration }}/'
         elif [ "$RUNNER_OS" == "Windows" ]; then
-          bin_dir=(echo "${{ github.workspace }}\${{ env.PROJECT_NAME }}\bin\${{ matrix.BuildConfiguration }}\" | sed 's/\\/\\\\/g')
+          bin_dir=(echo '${{ github.workspace }}\${{ env.PROJECT_NAME }}\bin\${{ matrix.BuildConfiguration }}\' | sed 's/\\/\\\\/g')
         else
           echo "$RUNNER_OS not supported"
           exit 1
