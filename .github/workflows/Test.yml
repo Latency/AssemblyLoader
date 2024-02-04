@@ -5,7 +5,10 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on:
+      - ubuntu-latest
+      - windows-latency
+      
     steps:
     
     - name: Get BIN_DIR
