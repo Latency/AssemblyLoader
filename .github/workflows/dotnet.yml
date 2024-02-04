@@ -9,7 +9,7 @@ on:
     
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
+    BuildConfiguration: ${{ matrix.os }}
     permissions:
       contents: write      # write permission is required to create a github release
       pull-requests: write # write permission is required for autolabeler otherwise, read permission is required at least
