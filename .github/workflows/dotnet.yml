@@ -107,7 +107,14 @@ jobs:
       id: package-name
       shell: bash
       run: |
-        entry=`ls ${{ env.BIN_DIR }}/*.nupkg | head -n 1`
+        if [ "$RUNNER_OS" == "Linux" ]; then
+          entry=`ls ${{ env.BIN_DIR }}/*.nupkg | head -n 1`
+        elif [ "$RUNNER_OS" == "Windows" ]; then
+          entry=`ls ${{ env.BIN_DIR }}\*.nupkg | head -n 1`
+        else
+          echo "$RUNNER_OS not supported"
+          exit 1
+        fi
         package_name=$(basename ${entry})
         echo "$package_name"
         echo "PACKAGE_NAME=$package_name" >> $GITHUB_ENV
@@ -126,13 +133,29 @@ jobs:
     - name: Set PACKAGE_PATH
       shell: bash
       run: |
-        echo "PACKAGE_PATH=${{ env.PROJECT_NAME }}/bin/${{ matrix.BuildConfiguration }}/${{ env.PACKAGE_NAME }}" >> $GITHUB_ENV
+        if [ "$RUNNER_OS" == "Linux" ]; then
+          package_path='${{ env.PROJECT_NAME }}/bin/${{ matrix.BuildConfiguration }}/${{ env.PACKAGE_NAME }}'
+        elif [ "$RUNNER_OS" == "Windows" ]; then
+          package_path='${{ env.PROJECT_NAME }}\bin\${{ matrix.BuildConfiguration }}\${{ env.PACKAGE_NAME }}'
+        else
+          echo "$RUNNER_OS not supported"
+          exit 1
+        fi        
+        echo "$package_path"
+        echo "PACKAGE_PATH=$package_path" >> $GITHUB_ENV
         
     - name: Get README.md Description
       id: readme-desc
       shell: bash
       run: |
-        path=${{ github.workspace }}/${{ env.PROJECT_NAME }}
+        if [ "$RUNNER_OS" == "Linux" ]; then
+          path='${{ github.workspace }}/${{ env.PROJECT_NAME }}'
+        elif [ "$RUNNER_OS" == "Windows" ]; then
+          path='${{ github.workspace }}\${{ env.PROJECT_NAME }}'
+        else
+          echo "$RUNNER_OS not supported"
+          exit 1
+        fi
         filenames=$(ls $path)
         for filename in ${filenames[@]}; do
             if [ -f $filename -a "$filename" = "README.md" ]; then
