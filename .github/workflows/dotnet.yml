@@ -55,13 +55,12 @@ jobs:
         
     - name: Get PROJECT_NAME
       id: project-name
+      shell: bash
       run: |
-        echo ${GITHUB_REPOSITORY}
         if [ "$RUNNER_OS" == "Linux" ]; then
           split=(${GITHUB_REPOSITORY//\// })
         elif [ "$RUNNER_OS" == "Windows" ]; then
-                echo ${GITHUB_REPOSITORY}
-          #split=(${GITHUB_REPOSITORY////// })
+          split=(${GITHUB_REPOSITORY////// })
         else
           echo "$RUNNER_OS not supported"
           exit 1
@@ -73,12 +72,14 @@ jobs:
         
     - name: Get BIN_DIR
       id: bin-dir
+      shell: bash
       run: |
         bin_dir=${{ github.workspace }}/${{ env.PROJECT_NAME }}/bin/${{ matrix.BuildConfiguration }}/
         echo "$bin_dir"
         echo "BIN_DIR=$bin_dir" >> $GITHUB_ENV
 
     - name: Get Build Artifacts
+      shell: bash
       run: |
         cd ..
         curl -sS -O -L 'https://github.com/${{ github.repository_owner }}/Build-Configs/blob/master/{Directory.Build.props,Directory.Build.targets,snKey.snk,Kitty.png,sBIO2.ico}'
@@ -95,6 +96,7 @@ jobs:
         
     - name: Get PACKAGE_NAME
       id: package-name
+      shell: bash
       run: |
         entry=`ls ${{ env.BIN_DIR }}/*.nupkg | head -n 1`
         package_name=$(basename ${entry})
@@ -103,6 +105,7 @@ jobs:
                
     - name: Get PACKAGE_VERSION
       id: package-version
+      shell: bash
       run: |
         regex='^(.*)\.([0-9]+(\.[0-9]+){2,})[-a-z]*\.nupkg$'
         if [[ ${{ env.PACKAGE_NAME }} =~ $regex ]]; then
@@ -112,11 +115,13 @@ jobs:
         fi                
 
     - name: Set PACKAGE_PATH
+      shell: bash
       run: |
         echo "PACKAGE_PATH=${{ env.PROJECT_NAME }}/bin/${{ matrix.BuildConfiguration }}/${{ env.PACKAGE_NAME }}" >> $GITHUB_ENV
         
     - name: Get README.md Description
       id: readme-desc
+      shell: bash
       run: |
         path=${{ github.workspace }}/${{ env.PROJECT_NAME }}
         filenames=$(ls $path)
@@ -138,6 +143,7 @@ jobs:
  
     - name: Delete Current Release (if exists)
       if: ${{ steps.check-tag.outputs.exists == 'true' }}
+      shell: bash
       run: |
         echo "Deleting current release 'v${{ env.PACKAGE_VERSION }}'"
         gh release delete v${{ env.PACKAGE_VERSION }} --cleanup-tag
@@ -167,6 +173,7 @@ jobs:
        
     - name: Check If NuGet Package Exists
       id: locate-package
+      shell: bash
       run: |
         echo "nuget-exists=false" >> $GITHUB_OUTPUT
         IN=$(nuget search "${{ env.PROJECT_NAME }}" -Source "${{ env.NUGET_SERVER_URL }}" | grep '^>' | cut -c 3-)
