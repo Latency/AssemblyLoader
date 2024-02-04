@@ -30,6 +30,7 @@ jobs:
       run: ls -R .
              
     - uses: actions/setup-dotnet@v4.0.0
+      if: false
       with:
         dotnet-version: '8.0.x'
         dotnet-quality: 'preview'
