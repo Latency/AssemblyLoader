@@ -25,8 +25,14 @@ jobs:
     - uses: actions/checkout@v4.1.1
 
     - name: Display structure of file heirarchy
-      shell: bash
-      run: ls -R .
+      run: |
+        if [ "$RUNNER_OS" == "Linux" ]; then
+          ls -R .
+        elif [ "$RUNNER_OS" == "Windows" ]; then
+          dir /s /b /o:gn
+        else
+          echo "$RUNNER_OS not supported"
+        fi
              
     - uses: actions/setup-dotnet@v4.0.0
       with:
