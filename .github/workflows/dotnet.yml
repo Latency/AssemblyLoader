@@ -74,7 +74,14 @@ jobs:
       id: bin-dir
       shell: bash
       run: |
-        bin_dir=${{ github.workspace }}/${{ env.PROJECT_NAME }}/bin/${{ matrix.BuildConfiguration }}/
+        if [ "$RUNNER_OS" == "Linux" ]; then
+          bin_dir=${{ github.workspace }}/${{ env.PROJECT_NAME }}/bin/${{ matrix.BuildConfiguration }}/
+        elif [ "$RUNNER_OS" == "Windows" ]; then
+          bin_dir=${{ github.workspace }}\${{ env.PROJECT_NAME }}\bin\${{ matrix.BuildConfiguration }}\
+        else
+          echo "$RUNNER_OS not supported"
+          exit 1
+        fi
         echo "$bin_dir"
         echo "BIN_DIR=$bin_dir" >> $GITHUB_ENV
 
