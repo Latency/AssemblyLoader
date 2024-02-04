@@ -37,6 +37,7 @@ jobs:
               
     - name: Get BRANCH_NAME
       id: branch-name
+      shell: bash
       run: |
         if [ "$RUNNER_OS" == "Linux" ]; then
           split=(${GITHUB_REF_NAME//\// })
