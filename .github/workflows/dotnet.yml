@@ -107,7 +107,8 @@ jobs:
       id: package-name
       shell: bash
       run: |
-        package_name=$(basename `ls '${{ env.BIN_DIR }}*.nupkg' | head -n 1`)
+        package=(ls '${{ env.BIN_DIR }}*.nupkg' | head -n 1)
+        package_name=$(basename $package)
         echo "$package_name"
         echo "PACKAGE_NAME=$package_name" >> $GITHUB_ENV
                
