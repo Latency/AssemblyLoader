@@ -47,7 +47,6 @@ jobs:
           echo "$RUNNER_OS not supported"
           exit 1
         fi
-        split=(${GITHUB_REF_NAME//\// })
         index=$((${#split[@]}-1))
         branch_name=${split[$index]}
         echo "$branch_name"
