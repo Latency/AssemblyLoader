@@ -88,11 +88,9 @@ jobs:
     - name: Get Build Artifacts
       shell: bash
       run: |
-        cd ..
         # Directory.Build.props,Directory.Build.targets,
         curl -sS -O -L 'https://github.com/${{ github.repository_owner }}/Build-Configs/blob/master/{snKey.snk,Kitty.png,sBIO2.ico}'
         mkdir -p Packages
-        cd -
 
     - name: Copy README.md To Build Directory
       shell: bash
@@ -127,7 +125,7 @@ jobs:
        if [ "$RUNNER_OS" == "Linux" ]; then
           package_fullpath=`ls ${{ env.BIN_DIR }}/*.nupkg | head -n 1`
         elif [ "$RUNNER_OS" == "Windows" ]; then
-          package_fullpath=`ls '${{ env.BIN_DIR }}'\\*.nupkg | head -n 1`
+          package_fullpath=`ls ${{ env.BIN_DIR//\//\\ }}\\*.nupkg | head -n 1`
         else
           echo "$RUNNER_OS not supported"
           exit 1
