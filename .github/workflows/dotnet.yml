@@ -171,13 +171,13 @@ jobs:
         echo "Deleting current release 'v${{ env.PACKAGE_VERSION }}'"
         gh release delete v${{ env.PACKAGE_VERSION }} --cleanup-tag
       env:
-        GITHUB_TOKEN: ${{ secrets.NUGET_AUTH_TOKEN }}
+        GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
 
     - name: Release Changelog Builder
       id: github_release
       uses: mikepenz/release-changelog-builder-action@v4.1.1            
       with:
-        token: ${{ secrets.NUGET_AUTH_TOKEN }}
+        token: ${{ env.GITHUB_TOKEN }}
         fromTag: "v1.1.6462"
         toTag: "v${{ env.PACKAGE_VERSION }}"
         
