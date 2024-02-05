@@ -190,6 +190,10 @@ jobs:
         if [ "$prerelease" = "true" ]; then
           p='-p '
         fi
+        if [ "$generate_release_notes" = "true" ]; then
+          r='--notes-from-tag '
+        fi
+        --notes-start-tag v1.1.6462
         gh release create ${tag_name} ${p}${d}-n '${body}'
       env:
         draft: false
