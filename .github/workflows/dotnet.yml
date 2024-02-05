@@ -86,6 +86,7 @@ jobs:
         echo "BIN_DIR=$bin_dir" >> $GITHUB_ENV
 
     - name: Get Build Artifacts
+      if: false
       shell: bash
       run: |
         mkdir -p Packages
