@@ -182,11 +182,18 @@ jobs:
         toTag: "v${{ env.PACKAGE_VERSION }}"
         
     - name: Create Release
+      shell: bash
       run: |
         if [ "$draft" = "true" ]; then
           d='-d '
         fi
-
+        if [ "$prerelease" = "true" ]; then
+          p='-p '
+        fi
+        if [ "$generate_release_notes" = "true" ]; then
+          r='--notes-from-tag '
+        fi
+        gh release create ${tag_name} ${p}${d}${r}-n '${body}'
       env:
         draft: false
         prerelease: false
