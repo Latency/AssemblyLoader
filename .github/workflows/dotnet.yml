@@ -90,26 +90,7 @@ jobs:
       run: |
         mkdir -p Packages
         curl -sS -O -L 'https://github.com/${{ github.repository_owner }}/Build-Configs/blob/master/{snKey.snk,Kitty.png}'
-
-    - name: Copy README.md To Build Directory
-      if: false
-      shell: bash
-      run: |
-        if [ "$RUNNER_OS" == "Linux" ]; then
-          cp README.md ${{ env.PROJECT_NAME }}
-        elif [ "$RUNNER_OS" == "Windows" ]; then
-          cp README.md .\bin\${{ matrix.BuildConfiguration }}
-          cp README.md .\bin\${{ matrix.BuildConfiguration }}\net452
-          cp README.md .\bin\${{ matrix.BuildConfiguration }}\netstandard2.0
-          cp README.md .\bin\${{ matrix.BuildConfiguration }}\netstandard2.1
-        else
-          echo "$RUNNER_OS not supported"
-          exit 1
-        fi
-
-    - name: List Contents
-      run: ls -R .
-      
+     
     - name: Restore dependencies
       run: dotnet restore
     
@@ -122,14 +103,7 @@ jobs:
       id: package-name
       shell: bash
       run: |
-       if [ "$RUNNER_OS" == "Linux" ]; then
-          package_fullpath=`ls ${{ env.BIN_DIR }}/*.nupkg | head -n 1`
-        elif [ "$RUNNER_OS" == "Windows" ]; then
-          package_fullpath=`ls .\\bin\\${{ matrix.BuildConfiguration }}\\*.nupkg | head -n 1`
-        else
-          echo "$RUNNER_OS not supported"
-          exit 1
-        fi
+        package_fullpath=`ls ./bin/${{ matrix.BuildConfiguration }}/*.nupkg | head -n 1`
         package_name=$(basename ${package_fullpath})
         echo "$package_name"
         echo "PACKAGE_NAME=$package_name" >> $GITHUB_ENV
