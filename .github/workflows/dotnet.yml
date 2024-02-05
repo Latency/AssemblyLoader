@@ -197,7 +197,6 @@ jobs:
        
     - name: Check If NuGet Package Exists
       id: locate-package
-      shell: bash
       run: |
         echo "nuget-exists=false" >> $GITHUB_OUTPUT
         IN=$(nuget search "${{ env.PROJECT_NAME }}" -Source "${{ env.NUGET_SERVER_URL }}" | grep '^>' | cut -c 3-)
