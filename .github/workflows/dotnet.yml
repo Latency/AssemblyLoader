@@ -109,7 +109,7 @@ jobs:
         fi
 
     - name: List Contents
-      run: ls ${{ env.PROJECT_NAME }}
+      run: ls -R ${{ env.PROJECT_NAME }}
       
     - name: Restore dependencies
       run: dotnet restore
