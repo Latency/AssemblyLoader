@@ -8,7 +8,7 @@
 |              |   Description                                                  |
 |--------------|----------------------------------------------------------------|
 | CREATED BY:  | Latency McLaughlin                                                     |
-| UPDATED:     | 2/3/2024                          |
+| UPDATED:     | 2/4/2024                          |
 | FRAMEWORK:   | [net452], [netstandard2.0], [netstandard2.1] ([Latest])                                |
 | LANGUAGE:    | [C#] preview                                            |
 | OUTPUT TYPE: | Library [API]                                            |

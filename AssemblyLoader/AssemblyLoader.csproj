@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<ConfigPath Condition=" '$(ConfigPath)' == '' ">..\</ConfigPath>
 		<OutputType>Library</OutputType>
 		<TargetFrameworks>net452;netstandard2.0;netstandard2.1</TargetFrameworks>
 		<Version>1.2.0</Version>
@@ -12,16 +11,5 @@
 		<RepositoryLicenseUrl>https://github.com/Latency/AssemblyLoader/blob/master/LICENSE</RepositoryLicenseUrl>
 		<RepositoryReleasesUrl>https://github.com/Latency/AssemblyLoader/releases</RepositoryReleasesUrl>
 	</PropertyGroup>
-
-	<ItemGroup>
-		<None Include="$(ConfigPath)Kitty.png">
-			<Pack>True</Pack>
-			<PackagePath>\</PackagePath>
-		</None>
-		<None Include="..\README.md">
-			<Pack>True</Pack>
-			<PackagePath>\</PackagePath>
-		</None>
-	</ItemGroup>
 
 </Project>
