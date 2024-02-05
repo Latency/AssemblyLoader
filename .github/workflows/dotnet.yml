@@ -93,7 +93,6 @@ jobs:
         # Directory.Build.props,Directory.Build.targets,
         curl -sS -O -L 'https://github.com/${{ github.repository_owner }}/Build-Configs/blob/master/{snKey.snk,Kitty.png,sBIO2.ico}'
 
-
     - name: Copy README.md To Build Directory
       shell: bash
       run: |
@@ -110,7 +109,7 @@ jobs:
         fi
 
     - name: List Contents
-      run: ls -R ${{ env.PROJECT_NAME }}
+      run: ls -R .
       
     - name: Restore dependencies
       run: dotnet restore
