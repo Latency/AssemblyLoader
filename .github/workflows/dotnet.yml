@@ -95,8 +95,12 @@ jobs:
         cd -
 
     - name: Copy README.md To Build Directory
+      if: $RUNNER_OS == 'Windows'
       shell: bash
-      run: cp README.md ${{ env.PROJECT_NAME }}
+      run: |
+        cp README.md ${{ env.PROJECT_NAME }}\net452
+        cp README.md ${{ env.PROJECT_NAME }}\netstandard2.0
+        cp README.md ${{ env.PROJECT_NAME }}\netstandard2.1
 
     - name: List Contents
       run: ls ${{ env.PROJECT_NAME }}
@@ -116,7 +120,7 @@ jobs:
        if [ "$RUNNER_OS" == "Linux" ]; then
           package_fullpath=`ls ${{ env.BIN_DIR }}/*.nupkg | head -n 1`
         elif [ "$RUNNER_OS" == "Windows" ]; then
-          package_fullpath=`ls ${{ env.BIN_DIR }}\*.nupkg | head -n 1`
+          package_fullpath=`ls "${{ env.BIN_DIR }}\*.nupkg" | head -n 1`
         else
           echo "$RUNNER_OS not supported"
           exit 1
