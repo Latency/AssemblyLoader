@@ -103,7 +103,7 @@ jobs:
       id: package-name
       shell: bash
       run: |
-        package_fullpath=`ls ./bin/${{ matrix.BuildConfiguration }}/*.nupkg | head -n 1`
+        package_fullpath=`ls ${{ env.PROJECT_NAME }}/bin/${{ matrix.BuildConfiguration }}/*.nupkg | head -n 1`
         package_name=$(basename ${package_fullpath})
         echo "$package_name"
         echo "PACKAGE_NAME=$package_name" >> $GITHUB_ENV
