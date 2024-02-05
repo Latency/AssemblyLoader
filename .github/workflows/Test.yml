@@ -17,7 +17,6 @@ jobs:
       id: bin-dir
       shell: bash
       run: |
-        echo "$USER"
         if [ "$RUNNER_OS" == "Linux" ]; then
           bin_dir='${{ github.workspace }}/AssemblyLoader/bin/${{ matrix.BuildConfiguration }}'
         elif [ "$RUNNER_OS" == "Windows" ]; then
