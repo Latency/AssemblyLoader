@@ -30,7 +30,12 @@ jobs:
         source-url: ${{ env.NUGET_SERVER_URL }}
       env:
         NUGET_AUTH_TOKEN: ${{ secrets.NUGET_AUTH_TOKEN }}
-              
+
+    - name: Copy NuGet.Config Template
+      shell: bash
+      run: |
+        cp C:\Users\Latency\AppData\Roaming\NuGet\NuGet.Config .
+        
     - name: Get BRANCH_NAME
       id: branch-name
       shell: bash
