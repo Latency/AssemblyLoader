@@ -22,11 +22,6 @@ jobs:
     steps:
 
     - uses: actions/checkout@v4.1.1
-
-    - name: Display structure of file heirarchy
-      if: false
-      shell: bash
-      run: ls -R .
              
     - uses: actions/setup-dotnet@v4.0.0
       with:
@@ -91,6 +86,10 @@ jobs:
         mkdir -p Packages
         curl -sS -O -L 'https://github.com/${{ github.repository_owner }}/Build-Configs/blob/master/{snKey.snk,Kitty.png}'
 
+    - name: Display structure of file heirarchy
+      shell: bash
+      run: ls -R .
+      
     - name: Copy README.md To Build Directory
       shell: bash
       run: |
