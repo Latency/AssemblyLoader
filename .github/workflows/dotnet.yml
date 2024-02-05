@@ -89,7 +89,7 @@ jobs:
       shell: bash
       run: |
         mkdir -p Packages
-        curl -sS -O -L 'https://github.com/${{ github.repository_owner }}/Build-Configs/blob/master/{snKey.snk,Kitty.png,sBIO2.ico}'
+        curl -sS -O -L 'https://github.com/${{ github.repository_owner }}/Build-Configs/blob/master/{snKey.snk,Kitty.png}'
 
     - name: Copy README.md To Build Directory
       if: false
