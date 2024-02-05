@@ -95,7 +95,7 @@ jobs:
         cd -
 
     - name: Copy README.md To Build Directory
-      if: $RUNNER_OS == 'Windows'
+      if: ${RUNNER_OS} == 'Windows'
       shell: bash
       run: |
         cp README.md ${{ env.PROJECT_NAME }}\net452
