@@ -137,7 +137,14 @@ jobs:
       id: readme-desc
       shell: bash
       run: |
-        filenames=$(ls ${{ github.workspace }})
+        if [ "$RUNNER_OS" == "Linux" ]; then
+          filenames=$(ls ${{ github.workspace }})
+        elif [ "$RUNNER_OS" == "Windows" ]; then
+          filenames=$(ls ${GITHUB_WORKSPACE//\//\\ })
+        else
+          echo "$RUNNER_OS not supported"
+          exit 1
+        fi                
         for filename in ${filenames[@]}; do
             if [ -f $filename -a "$filename" = "README.md" ]; then
                 echo "$filename exists."
