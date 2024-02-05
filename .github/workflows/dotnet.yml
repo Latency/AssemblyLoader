@@ -15,7 +15,7 @@ jobs:
       pull-requests: write # write permission is required for autolabeler otherwise, read permission is required at least
     strategy:
         matrix:
-            os: self-hosted
+            os: [self-hosted, ubuntu-latest, windows-latest]
             BuildConfiguration: [ Release ]
         max-parallel: 2
 
