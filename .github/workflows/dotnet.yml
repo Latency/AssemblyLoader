@@ -77,7 +77,8 @@ jobs:
         if [ "$RUNNER_OS" == "Linux" ]; then
           bin_dir='${{ github.workspace }}/AssemblyLoader/bin/${{ matrix.BuildConfiguration }}'
         elif [ "$RUNNER_OS" == "Windows" ]; then
-          bin_dir='${{ github.workspace }}\AssemblyLoader\bin\${{ matrix.BuildConfiguration }}'
+          x=$(echo "${{ github.workspace }}" | sed 's/\\/\\\\/g')
+          bin_dir='$x\\AssemblyLoader\\bin\\${{ matrix.BuildConfiguration }}'
         else
           echo "$RUNNER_OS not supported"
           exit 1
@@ -94,17 +95,13 @@ jobs:
         mkdir -p Packages
         cd -
 
-    - name: Restore dependencies
+    - name: Copy README.md To Build Directory
       shell: bash
       run: cp README.md ${{ env.PROJECT_NAME }}
 
     - name: Restore dependencies
       run: dotnet restore
-
-    - name: List files
-      shell: bash
-      run: ls 
-      
+    
     - name: Build
       id: build
       run: |
@@ -117,8 +114,7 @@ jobs:
        if [ "$RUNNER_OS" == "Linux" ]; then
           package_fullpath=`ls ${{ env.BIN_DIR }}/*.nupkg | head -n 1`
         elif [ "$RUNNER_OS" == "Windows" ]; then
-          bin_dir=`echo "${{ env.BIN_DIR}}" | sed 's/\\/\\\\/g'` 
-          package_fullpath=`ls $bin_dir\\*.nupkg | head -n 1`
+          package_fullpath=`ls ${{ BIN_DIR }}\\*.nupkg | head -n 1`
         else
           echo "$RUNNER_OS not supported"
           exit 1
