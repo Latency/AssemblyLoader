@@ -109,7 +109,8 @@ jobs:
        if [ "$RUNNER_OS" == "Linux" ]; then
           package_fullpath=`ls ${{ env.BIN_DIR }}/*.nupkg | head -n 1`
         elif [ "$RUNNER_OS" == "Windows" ]; then
-          package_fullpath=`ls ${{ env.BIN_DIR }}\\*.nupkg | head -n 1`
+          bin_dir=`echo "${{ env.BIN_DIR}}" | sed 's/\\/\\\\/g'` 
+          package_fullpath=`ls $bin_dir\\*.nupkg | head -n 1`
         else
           echo "$RUNNER_OS not supported"
           exit 1
