@@ -199,6 +199,7 @@ jobs:
         draft: false
         prerelease: false
         generate_release_notes: true
+        tag_name: v${{ env.PACKAGE_VERSION }}
         body: |
           ${{ env.README_DESC }}
          
