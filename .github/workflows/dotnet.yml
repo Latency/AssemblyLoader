@@ -96,6 +96,10 @@ jobs:
 
     - name: Restore dependencies
       run: dotnet restore
+
+    - name: List files
+      shell: bash
+      run: ls 
       
     - name: Build
       id: build
