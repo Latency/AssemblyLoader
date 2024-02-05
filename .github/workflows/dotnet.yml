@@ -158,6 +158,7 @@ jobs:
         fi
         filenames=$(ls $path)
         for filename in ${filenames[@]}; do
+            echo $filename
             if [ -f $filename -a "$filename" = "README.md" ]; then
                 echo "$filename exists."
                 desc=$(sed -n '2{P;q;}' $filename | sed 's/\n$//' | sed 's/\r$//' | cut -c 5- )
