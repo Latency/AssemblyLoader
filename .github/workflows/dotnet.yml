@@ -168,10 +168,11 @@ jobs:
       if: ${{ steps.check-tag.outputs.exists == 'true' }}
       shell: bash
       run: |
-        gh auth login --with-token < ${{ secrets.NUGET_AUTH_TOKEN }}
         echo "Deleting current release 'v${{ env.PACKAGE_VERSION }}'"
         gh release delete v${{ env.PACKAGE_VERSION }} --cleanup-tag
-
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
     - name: Release Changelog Builder
       id: github_release
       uses: mikepenz/release-changelog-builder-action@v4.1.1            
