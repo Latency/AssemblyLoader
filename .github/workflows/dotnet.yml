@@ -177,7 +177,7 @@ jobs:
       id: github_release
       uses: mikepenz/release-changelog-builder-action@v4.1.1            
       with:
-        token: ${{ env.GITHUB_TOKEN }}
+        token: ${{ github.token }}
         fromTag: "v1.1.6462"
         toTag: "v${{ env.PACKAGE_VERSION }}"
         
@@ -202,8 +202,7 @@ jobs:
           ${{ env.README_DESC }}
          
           ${{steps.github_release.outputs.changelog}}
-        tag_name: v${{ env.PACKAGE_VERSION }}
-        GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
+        GH_TOKEN: ${{ github.token }}
         
     - name: Check If NuGet Package Exists
       id: locate-package
