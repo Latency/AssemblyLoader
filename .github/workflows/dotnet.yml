@@ -86,9 +86,8 @@ jobs:
         mkdir -p Packages
         curl -sS -O -L 'https://github.com/${{ github.repository_owner }}/Build-Configs/blob/master/{snKey.snk,Kitty.png}'
 
-    - name: Display structure of file heirarchy
-      shell: bash
-      run: ls -R .
+    - name: List Contents
+      run: ls -R ${{ env.PROJECT_NAME }}
       
     - name: Copy README.md To Build Directory
       shell: bash
