@@ -171,13 +171,13 @@ jobs:
         echo "Deleting current release 'v${{ env.PACKAGE_VERSION }}'"
         gh release delete v${{ env.PACKAGE_VERSION }} --cleanup-tag
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.NUGET_AUTH_TOKEN }}
 
     - name: Release Changelog Builder
       id: github_release
       uses: mikepenz/release-changelog-builder-action@v4.1.1            
       with:
-        token: ${{ env.GITHUB_TOKEN }}
+        token: ${{ secrets.NUGET_AUTH_TOKEN }}
         fromTag: "v1.1.6462"
         toTag: "v${{ env.PACKAGE_VERSION }}"
         
@@ -203,7 +203,7 @@ jobs:
          
           ${{steps.github_release.outputs.changelog}}
         tag_name: v${{ env.PACKAGE_VERSION }}
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GH_TOKEN: ${{ secrets.NUGET_AUTH_TOKEN }}
         
     - name: Check If NuGet Package Exists
       id: locate-package
