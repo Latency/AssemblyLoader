@@ -89,8 +89,6 @@ jobs:
       shell: bash
       run: |
         mkdir -p Packages
-        cd ${{ env.PROJECT_NAME }}
-        # Directory.Build.props,Directory.Build.targets,
         curl -sS -O -L 'https://github.com/${{ github.repository_owner }}/Build-Configs/blob/master/{snKey.snk,Kitty.png,sBIO2.ico}'
 
     - name: Copy README.md To Build Directory
