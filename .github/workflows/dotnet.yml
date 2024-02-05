@@ -26,7 +26,7 @@ jobs:
     - uses: actions/setup-dotnet@v4.0.0
       with:
         dotnet-version: '8.0.x'
-        dotnet-quality: 'preview'
+        dotnet-quality: 'latest'
         source-url: ${{ env.NUGET_SERVER_URL }}
       env:
         NUGET_AUTH_TOKEN: ${{ secrets.NUGET_AUTH_TOKEN }}
