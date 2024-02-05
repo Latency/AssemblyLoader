@@ -15,7 +15,7 @@ jobs:
       pull-requests: write # write permission is required for autolabeler otherwise, read permission is required at least
     strategy:
         matrix:
-            os: [ ubuntu-latest ] # [ubuntu-latest, windows-latest]
+            os: [ubuntu-latest, windows-latest]
             BuildConfiguration: [ Release ]
         max-parallel: 2
 
@@ -85,15 +85,7 @@ jobs:
       run: |
         mkdir -p Packages
         curl -sS -O -L 'https://github.com/${{ github.repository_owner }}/Build-Configs/blob/master/{snKey.snk,Kitty.png}'
-
-    - name: List Contents
-      run: ls -R ${{ env.PROJECT_NAME }}
-      
-    - name: Copy README.md To Build Directory
-      shell: bash
-      run: |
-        cp README.md ${{ env.PROJECT_NAME }}
-        
+             
     - name: Restore dependencies
       run: dotnet restore
     
