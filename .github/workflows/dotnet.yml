@@ -95,12 +95,18 @@ jobs:
         cd -
 
     - name: Copy README.md To Build Directory
-      if: ${RUNNER_OS} == 'Windows'
       shell: bash
       run: |
-        cp README.md ${{ env.PROJECT_NAME }}\net452
-        cp README.md ${{ env.PROJECT_NAME }}\netstandard2.0
-        cp README.md ${{ env.PROJECT_NAME }}\netstandard2.1
+        if [ "$RUNNER_OS" == "Linux" ]; then
+          cp README.md ${{ env.PROJECT_NAME }}
+        elif [ "$RUNNER_OS" == "Windows" ]; then
+          cp README.md ${{ env.PROJECT_NAME }}\net452
+          cp README.md ${{ env.PROJECT_NAME }}\netstandard2.0
+          cp README.md ${{ env.PROJECT_NAME }}\netstandard2.1
+        else
+          echo "$RUNNER_OS not supported"
+          exit 1
+        fi
 
     - name: List Contents
       run: ls ${{ env.PROJECT_NAME }}
