@@ -193,6 +193,7 @@ jobs:
         if [ "$generate_release_notes" = "true" ]; then
           r='--notes-from-tag '
         fi
+        echo "release create ${tag_name} ${p}${d}--notes-start-tag v1.1.6462 -n '${body}'"
         gh release create ${tag_name} ${p}${d}--notes-start-tag v1.1.6462 -n '${body}'
       env:
         draft: false
@@ -202,7 +203,7 @@ jobs:
           ${{ env.README_DESC }}
          
           ${{steps.github_release.outputs.changelog}}
-        GH_TOKEN: ${{ github.token }}
+        GH_TOKEN: ${{ env.GITHUB_TOKEN }}
         
     - name: Check If NuGet Package Exists
       id: locate-package
