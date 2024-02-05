@@ -92,21 +92,15 @@ jobs:
         mkdir -p Packages
         curl -sS -O -L 'https://github.com/${{ github.repository_owner }}/Build-Configs/blob/master/{snKey.snk,Kitty.png}'
 
-    - name: Runner Identification Creation
-      shell: bash
-      run: touch .runner
-        
     - name: Restore dependencies
       run: dotnet restore
-
-    - name: Runner Identification Removal
-      shell: bash
-      run: rm .runner
         
     - name: Build
       id: build
       run: |
+        touch .runner
         dotnet build --no-restore --configuration ${{ matrix.BuildConfiguration }}
+        rm .runner
         
     - name: Get PACKAGE_NAME
       id: package-name
