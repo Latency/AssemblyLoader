@@ -190,7 +190,7 @@ jobs:
         if [ "$prerelease" = "true" ]; then
           p='-p '
         fi
-        echo "release create ${tag_name} ${p}${d}--notes-start-tag v1.1.6462 -n '${body}'"
+        gh auth login -g "github" 
         gh release create ${tag_name} ${p}${d}--notes-start-tag v1.1.6462 -n '${body}'
       env:
         draft: false
