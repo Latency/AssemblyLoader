@@ -94,6 +94,7 @@ jobs:
         curl -sS -O -L 'https://github.com/${{ github.repository_owner }}/Build-Configs/blob/master/{snKey.snk,Kitty.png,sBIO2.ico}'
 
     - name: Copy README.md To Build Directory
+      if: false
       shell: bash
       run: |
         if [ "$RUNNER_OS" == "Linux" ]; then
