@@ -168,6 +168,7 @@ jobs:
       if: ${{ steps.check-tag.outputs.exists == 'true' }}
       shell: bash
       run: |
+        gh auth login 
         echo "Deleting current release 'v${{ env.PACKAGE_VERSION }}'"
         gh release delete v${{ env.PACKAGE_VERSION }} --cleanup-tag
       env:
