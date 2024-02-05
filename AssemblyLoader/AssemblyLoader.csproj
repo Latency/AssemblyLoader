@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
+		<ConfigPath Condition=" '$(ConfigPath)' == '' ">../</ConfigPath>
 		<OutputType>Library</OutputType>
 		<TargetFrameworks>net452;netstandard2.0;netstandard2.1</TargetFrameworks>
 		<Version>1.2.0</Version>
