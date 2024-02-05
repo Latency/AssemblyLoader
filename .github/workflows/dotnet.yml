@@ -34,7 +34,7 @@ jobs:
     - name: Copy NuGet.Config Template
       shell: bash
       run: |
-        cp C:\\Users\\Latency\\AppData\\Roaming\\NuGet\\NuGet.Config .
+        cp D:\\Source\\NuGet.Config .
         
     - name: Get BRANCH_NAME
       id: branch-name
