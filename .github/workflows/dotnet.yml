@@ -90,7 +90,20 @@ jobs:
       run: |
         mkdir -p Packages
         curl -sS -O -L 'https://github.com/${{ github.repository_owner }}/Build-Configs/blob/master/{snKey.snk,Kitty.png}'
-     
+
+    - name: Copy README.md To Build Directory
+      shell: bash
+      run: |
+        cp README.md ${{ env.PROJECT_NAME }}
+        if [ "$RUNNER_OS" == "Windows" ]; then
+          cp README.md ${{ env.PROJECT_NAME }}\\bin\\${{ matrix.BuildConfiguration }}\\net452
+          cp README.md ${{ env.PROJECT_NAME }}\\bin\\${{ matrix.BuildConfiguration }}\\netstandard2.0
+          cp README.md ${{ env.PROJECT_NAME }}\\bin\\${{ matrix.BuildConfiguration }}\\netstandard2.1
+        else
+          echo "$RUNNER_OS not supported"
+          exit 1
+        fi
+        
     - name: Restore dependencies
       run: dotnet restore
     
