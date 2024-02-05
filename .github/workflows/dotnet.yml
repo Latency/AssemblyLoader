@@ -95,6 +95,10 @@ jobs:
         cd -
 
     - name: Restore dependencies
+      shell: bash
+      run: cp README.md ${{ env.PROJECT_NAME }}
+
+    - name: Restore dependencies
       run: dotnet restore
 
     - name: List files
