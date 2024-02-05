@@ -134,9 +134,9 @@ jobs:
       shell: bash
       run: |
         if [ "$RUNNER_OS" == "Linux" ]; then
-          package_path=$BIN_DIR/${{ env.PACKAGE_NAME }}'
+          package_path=$BIN_DIR/${{ env.PACKAGE_NAME }}
         elif [ "$RUNNER_OS" == "Windows" ]; then
-          package_path=$BIN_DI}\\${{ env.PACKAGE_NAME }}'
+          package_path=$BIN_DIR\\${{ env.PACKAGE_NAME }}
         else
           echo "$RUNNER_OS not supported"
           exit 1
@@ -197,6 +197,7 @@ jobs:
        
     - name: Check If NuGet Package Exists
       id: locate-package
+      shell: bash
       run: |
         echo "nuget-exists=false" >> $GITHUB_OUTPUT
         IN=$(nuget search "${{ env.PROJECT_NAME }}" -Source "${{ env.NUGET_SERVER_URL }}" | grep '^>' | cut -c 3-)
