@@ -203,7 +203,7 @@ jobs:
          
           ${{steps.github_release.outputs.changelog}}
         tag_name: v${{ env.PACKAGE_VERSION }}
-        GH_TOKEN: ${{ secrets.NUGET_AUTH_TOKEN }}
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
     - name: Check If NuGet Package Exists
       id: locate-package
