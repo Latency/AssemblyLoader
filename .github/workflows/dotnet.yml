@@ -100,6 +100,7 @@ jobs:
         if [ "$RUNNER_OS" == "Linux" ]; then
           cp README.md ${{ env.PROJECT_NAME }}
         elif [ "$RUNNER_OS" == "Windows" ]; then
+          cp README.md .\bin\${{ matrix.BuildConfiguration }}
           cp README.md .\bin\${{ matrix.BuildConfiguration }}\net452
           cp README.md .\bin\${{ matrix.BuildConfiguration }}\netstandard2.0
           cp README.md .\bin\${{ matrix.BuildConfiguration }}\netstandard2.1
