@@ -10,13 +10,18 @@ on:
     tags: 'v[0-9]+.[0-9]+.[0-9]+'
 
   pull_request:
-    
-jobs:
+
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+  
+jobs:        
   build:
-    if: startsWith(github.ref, 'refs/tags/') == false
-    #if: github.event_name  == 'pull_request'
+    if: ${{ startsWith(github.ref, 'refs/tags/') == false }}
     runs-on: ${{ matrix.os }}
-    
+
     strategy:
         matrix:
             os: [self-hosted] #, ubuntu-latest, windows-latest]
@@ -24,7 +29,7 @@ jobs:
         max-parallel: 2
         
     steps:
-
+          
     - name: Copy NuGet.Config Template
       shell: bash
       run: |
@@ -56,7 +61,8 @@ jobs:
         dotnet build --no-restore --configuration ${{ matrix.BuildConfiguration }}
         
   release:
-    if: startsWith(github.ref, 'refs/tags/')
+    needs: build
+    if: ${{ startsWith(github.ref, 'refs/tags/') }}
     runs-on: ${{ matrix.os }}
     
     permissions:
@@ -122,7 +128,7 @@ jobs:
       shell: bash
       run: |
         version=v${{ env.PACKAGE_VERSION }}
-        cd ${{ env.PROJECT_NAME }}
+        cd src
         array=$(gh release list -O asc | cut -f3)
         cd ..
         echo "FIRST_RELEASE=$(echo $array | awk '{print $1}')" >> $GITHUB_ENV
@@ -184,6 +190,23 @@ jobs:
         package-name: ${{ env.PROJECT_NAME }}
         package-type: 'nuget'
         token: ${{ secrets.NUGET_AUTH_TOKEN }}
+
+  deploy:
+    needs: release
+    runs-on: ${{ matrix.os }}
+    
+    permissions:
+      packages: write
+      contents: write      # write permission is required to create a github release
+      pull-requests: write # write permission is required for autolabeler otherwise, read permission is required at least
+      
+    strategy:
+        matrix:
+            os: [self-hosted] #, ubuntu-latest, windows-latest]
+            BuildConfiguration: [ Release ]
+        max-parallel: 2
+
+    steps:
 
     - name: Push package to GitHub packages
       run: |

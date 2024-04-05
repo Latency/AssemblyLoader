@@ -1,7 +1,7 @@
-﻿# AssemblyLoader
+# AssemblyLoader
 ### Assembly Information & Loader via Reflection
 
-
+ 
 ---
 
 
