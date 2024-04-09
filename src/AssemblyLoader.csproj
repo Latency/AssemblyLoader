@@ -3,13 +3,12 @@
 	<PropertyGroup>
 		<OutputType>Library</OutputType>
 		<TargetFrameworks>net452;netstandard2.0;netstandard2.1</TargetFrameworks>
-		<Version>1.2.0</Version>
+		<Version>1.2.1</Version>
 		<Description>Assembly Information &amp; Loader via Reflection</Description>
 		<PackageTags>AssemblyLoader C# AssemblyInfo</PackageTags>
+		<PackageId>AssemblyLoader</PackageId>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<PackageReleaseNotes>Update target framework to include .NET 9.0.</PackageReleaseNotes>
-		<RepositoryLicenseUrl>https://github.com/Latency/AssemblyLoader/blob/master/MIT-LICENSE.txt</RepositoryLicenseUrl>
-		<RepositoryReleasesUrl>https://github.com/Latency/AssemblyLoader/releases</RepositoryReleasesUrl>
 	</PropertyGroup>
 
 </Project>
