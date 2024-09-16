@@ -1,14 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<OutputType>Library</OutputType>
-		<TargetFrameworks>net452;netstandard2.0;netstandard2.1</TargetFrameworks>
-		<Version>1.2.1</Version>
+		<TargetFrameworks>net452;netstandard2.0;netstandard2.1;net9.0</TargetFrameworks>
+		<Version>1.2.2</Version>
 		<Description>Assembly Information &amp; Loader via Reflection</Description>
 		<PackageTags>AssemblyLoader C# AssemblyInfo</PackageTags>
-		<PackageId>AssemblyLoader</PackageId>
-		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<PackageReleaseNotes>Update target framework to include .NET 9.0.</PackageReleaseNotes>
+		<GeneratePackageOnBuild Condition=" '$(Configuration)' == 'Release' ">True</GeneratePackageOnBuild>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <Compile Remove="ProxyClass.cs" />
+	  <Compile Update="ProxyClass.cs" Condition="!$(TargetFrameworks.Contains('netstandard'))" />
+	</ItemGroup>
 
 </Project>

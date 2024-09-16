@@ -8,29 +8,28 @@
 using System.Runtime.InteropServices;
 
 // ReSharper disable once CheckNamespace
-namespace System.Reflection
+namespace System.Reflection;
+
+/// <summary>
+///     Defines an authors name custom attribute for an assembly manifest.
+/// </summary>
+[AttributeUsage(AttributeTargets.Assembly)]
+[ComVisible(true)]
+public sealed class AssemblyAuthorsAttribute : Attribute
 {
     /// <summary>
     ///     Defines an authors name custom attribute for an assembly manifest.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Assembly)]
-    [ComVisible(true)]
-    public sealed class AssemblyAuthorsAttribute : Attribute
+    public AssemblyAuthorsAttribute(string authors)
     {
-        /// <summary>
-        ///     Defines an authors name custom attribute for an assembly manifest.
-        /// </summary>
-        public AssemblyAuthorsAttribute(string authors)
-        {
-            Authors = authors;
-        }
-
-        /// <summary>
-        ///     Gets authors name information.
-        /// </summary>
-        /// <returns>
-        ///     A string containing the authors name.
-        /// </returns>
-        public string Authors { get; set; }
+        Authors = authors;
     }
+
+    /// <summary>
+    ///     Gets authors name information.
+    /// </summary>
+    /// <returns>
+    ///     A string containing the authors name.
+    /// </returns>
+    public string Authors { get; set; }
 }

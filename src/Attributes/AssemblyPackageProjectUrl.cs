@@ -8,29 +8,28 @@
 using System.Runtime.InteropServices;
 
 // ReSharper disable once CheckNamespace
-namespace System.Reflection
+namespace System.Reflection;
+
+/// <summary>
+///     Defines a project URL custom attribute for an assembly manifest.
+/// </summary>
+[AttributeUsage(AttributeTargets.Assembly)]
+[ComVisible(true)]
+public class AssemblyPackageProjectUrlAttribute : Attribute
 {
     /// <summary>
     ///     Defines a project URL custom attribute for an assembly manifest.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Assembly)]
-    [ComVisible(true)]
-    public class AssemblyPackageProjectUrlAttribute : Attribute
+    public AssemblyPackageProjectUrlAttribute(string value)
     {
-        /// <summary>
-        ///     Defines a project URL custom attribute for an assembly manifest.
-        /// </summary>
-        public AssemblyPackageProjectUrlAttribute(string value)
-        {
-            PackageProjectUrl = value;
-        }
-
-        /// <summary>
-        ///     Gets the project URL.
-        /// </summary>
-        /// <returns>
-        ///     A string containing the project URL.
-        /// </returns>
-        public string PackageProjectUrl { get; set; }
+        PackageProjectUrl = value;
     }
+
+    /// <summary>
+    ///     Gets the project URL.
+    /// </summary>
+    /// <returns>
+    ///     A string containing the project URL.
+    /// </returns>
+    public string PackageProjectUrl { get; set; }
 }

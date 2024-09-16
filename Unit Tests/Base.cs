@@ -5,18 +5,14 @@
 // Date:     1/22/2024
 // ****************************************************************************
 
-using System.Diagnostics;
-using Xunit.Abstractions;
+namespace Unit_Tests;
 
-namespace AssemblyLoader_Unit_Tests
+/// <summary>
+///     Primary Constructor
+/// </summary>
+/// <param name="console"></param>
+public abstract class Base(ITestOutputHelper console)
 {
-    /// <summary>
-    ///     Primary Constructor
-    /// </summary>
-    /// <param name="console"></param>
-    public abstract class Base(ITestOutputHelper console)
-    {
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        protected readonly ITestOutputHelper Console = console;
-    }
+    [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+    protected readonly ITestOutputHelper Console = console;
 }

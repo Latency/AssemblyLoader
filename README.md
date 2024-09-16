@@ -5,19 +5,57 @@
 ---
 
 
-|              |   Description                                                  |
-|--------------|----------------------------------------------------------------|
-| CREATED BY:  | Latency McLaughlin                                                     |
-| UPDATED:     | 4/11/2024                          |
-| FRAMEWORK:   | [net452], [netstandard2.0], [netstandard2.1] ([Latest])                                |
-| LANGUAGE:    | [C#] preview                                            |
-| OUTPUT TYPE: | Library [API]                                            |
-| SUPPORTS:    | [Visual Studio]                                                |
-| GFX SUBSYS:  | [None]                                                     |
-| TAGS:        | [AssemblyLoader C# AssemblyInfo]                                                |
-| STATUS       | [![.NET Core Desktop Build](https://github.com/Latency/AssemblyLoader/actions/workflows/dotnet.yml/badge.svg)](https://github.com/Latency/AssemblyLoader/actions/workflows/dotnet.yml)                                                     |
-| LICENSE:     | [![License](https://img.shields.io/badge/MIT-License-yellowgreen.svg)](https://github.com/Latency/AssemblyLoader/blob/master/MIT-LICENSE.txt)                                                    |
-| VERSION:     | [![GitHub Release](https://img.shields.io/badge/Version-1.2.1-blue)](https://github.com/Latency/AssemblyLoader/releases)                                                    |
+<table>
+<tr>
+<th></th>
+<th>Description</th>
+</tr>
+<tr>
+<td>CREATED BY:</td>
+<td>[Latency McLaughlin]</td>
+</tr>
+<tr>
+<td>UPDATED:</td>
+<td>9/16/2024</td>
+</tr>
+<tr>
+<td>FRAMEWORK:</td>
+<td>net452, netstandard2.0, netstandard2.1, net9.0</td>
+</tr>
+<tr>
+<td>LANGUAGE:</td>
+<td>[C#] preview</td>
+</tr>
+<tr>
+<td>OUTPUT TYPE:</td>
+<td>Library [API]</td>
+</tr>
+<tr>
+<td>SUPPORTS:</td>
+<td>[Visual Studio]</td>
+</tr>
+<tr>
+<td>GFX SUBSYS:</td>
+<td>[None]</td>
+</tr>
+<tr>
+<td>TAGS:</td>
+<td>[AssemblyLoader C# AssemblyInfo]</td>
+</tr>
+<tr>
+<td>STATUS:</td>
+<td><a  href="https://github.com/Latency/AssemblyLoader/actions/workflows/dotnet.yml"><img src="https://github.com/Latency/AssemblyLoader/actions/workflows/dotnet.yml/badge.svg"></a></td>
+</tr>
+<tr>
+<td>LICENSE:</td>
+<td><a href="https://github.com/Latency/AssemblyLoader/blob/master/MIT-LICENSE.txt"><img src="https://img.shields.io/github/license/Latency/AssemblyLoader?style=plastic&logo=GitHub&logoColor=black&label=License&color=yellowgreen"></a></td>
+</tr>
+<tr>
+<td>VERSION:</td>
+<td><a href="https://github.com/Latency/AssemblyLoader/releases"><img src="https://img.shields.io/github/v/release/Latency/AssemblyLoader?include_prereleases&style=plastic&logo=GitHub&logoColor=black&label=Version&color=blue"></a></td>
+</tr>
+<!-- VERSION: 1.2.2 -->
+</table>
 
 
 <hr>
