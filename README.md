@@ -54,7 +54,7 @@
 <td>VERSION:</td>
 <td><a href="https://github.com/Latency/AssemblyLoader/releases"><img src="https://img.shields.io/github/v/release/Latency/AssemblyLoader?include_prereleases&style=plastic&logo=GitHub&logoColor=black&label=Version&color=blue"></a></td>
 </tr>
-<!-- VERSION: 1.2.2 -->
+<!-- VERSION: 1.2.3 -->
 </table>
 
 

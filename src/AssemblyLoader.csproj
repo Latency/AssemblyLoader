@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFrameworks>net452;netstandard2.0;netstandard2.1;net9.0</TargetFrameworks>
-		<Version>1.2.2</Version>
+		<Version>1.2.3</Version>
 		<Description>Assembly Information &amp; Loader via Reflection</Description>
 		<PackageTags>AssemblyLoader C# AssemblyInfo</PackageTags>
 		<PackageReleaseNotes>Update target framework to include .NET 9.0.</PackageReleaseNotes>
