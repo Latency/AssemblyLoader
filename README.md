@@ -1,5 +1,5 @@
 ﻿# AssemblyLoader
-### Assembly Information & Loader via Reflection
+Assembly Information & Loader via Reflection
 
 
 ---
@@ -16,7 +16,7 @@
 </tr>
 <tr>
 <td>UPDATED:</td>
-<td>9/16/2024</td>
+<td>9/17/2024</td>
 </tr>
 <tr>
 <td>FRAMEWORK:</td>
@@ -44,7 +44,7 @@
 </tr>
 <tr>
 <td>STATUS:</td>
-<td><a  href="https://github.com/Latency/AssemblyLoader/actions/workflows/dotnet.yml"><img src="https://github.com/Latency/AssemblyLoader/actions/workflows/dotnet.yml/badge.svg"></a></td>
+<td><a href="https://github.com/Latency/AssemblyLoader/actions/workflows/dotnet.yml"><img src="https://github.com/Latency/AssemblyLoader/actions/workflows/dotnet.yml/badge.svg"></a></td>
 </tr>
 <tr>
 <td>LICENSE:</td>

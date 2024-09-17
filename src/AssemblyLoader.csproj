@@ -6,8 +6,6 @@
 		<Description>Assembly Information &amp; Loader via Reflection</Description>
 		<PackageTags>AssemblyLoader C# AssemblyInfo</PackageTags>
 		<PackageReleaseNotes>Update target framework to include .NET 9.0.</PackageReleaseNotes>
-		<GeneratePackageOnBuild Condition=" '$(Configuration)' == 'Release' ">True</GeneratePackageOnBuild>
-		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
 

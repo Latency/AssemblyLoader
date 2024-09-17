@@ -2,10 +2,12 @@
 
 	<PropertyGroup>
 		<TargetFramework>net9.0</TargetFramework>
+		<IsTestProject>true</IsTestProject>
+		<Nullable>enable</Nullable>
 	</PropertyGroup>
 
 	<ItemGroup>
-	    <ProjectReference Include="..\src\AssemblyLoader.csproj" />
+		<ProjectReference Include="..\src\AssemblyLoader.csproj" />
 	</ItemGroup>
 
 </Project>
