@@ -1,14 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net452;netstandard2.0;netstandard2.1;net9.0</TargetFrameworks>
-		<Version>1.2.3</Version>
+		<IsMainProject>True</IsMainProject>
+		<TargetFrameworks>net452;netstandard2.0;netstandard2.1;net10.0</TargetFrameworks>
+		<Version>1.2.4</Version>
 		<Description>Assembly Information &amp; Loader via Reflection</Description>
 		<PackageTags>AssemblyLoader C# AssemblyInfo</PackageTags>
-		<PackageReleaseNotes>Update target framework to include .NET 9.0.</PackageReleaseNotes>
+		<PackageReleaseNotes>Update target framework to include .NET 10.0.</PackageReleaseNotes>
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
 
+	<ItemGroup>
+		<PackageReference Remove="AssemblyLoader" Version="1.2.3" />
+	</ItemGroup>
+	
 	<ItemGroup>
 	  <Compile Remove="ProxyClass.cs" />
 	  <Compile Update="ProxyClass.cs" Condition="!$(TargetFrameworks.Contains('netstandard'))" />
