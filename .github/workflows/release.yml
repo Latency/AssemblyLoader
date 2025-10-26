@@ -6,10 +6,11 @@ env:
 defaults:
   run:
     shell: powershell
-    
+   #shell: '"C:\\Program Files\\Git\\bin\\bash.exe" -eo pipefail -c'
+   
 on:
   push:
-    tags: 'v*'
+    tags: 'v[0-9]+.[0-9]+.[0-9]+(-preview)?'
     
   workflow_dispatch:
   
@@ -25,7 +26,7 @@ jobs:
           skip_after_successful_duplicate: 'true'
           
   release:
-    #needs: pre_job
+    needs: pre_job
     if: ${{ needs.pre_job.outputs.should_skip != 'true' }}
     runs-on: ${{ matrix.os }}
     
@@ -39,9 +40,6 @@ jobs:
             os: [self-hosted] #, ubuntu-latest, windows-latest]
             BuildConfiguration: [ Release ]
         max-parallel: 2
-        
-    env:
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Set GH_TOKEN using the built-in GITHUB_TOKEN
       
     steps:
        
@@ -265,17 +263,16 @@ jobs:
       if: ${{ env.RELEASE_FOUND == 'true' }} 
       run: |     
         Write-Host "Deleting current release 'v$env:PACKAGE_VERSION'"
-        & gh release delete "v$env:PACKAGE_VERSION" --cleanup-tag
-          
+        try {
+          & gh release delete "v$env:PACKAGE_VERSION" --cleanup-tag
+        } catch {
+        }
+  
     - name: Create Release
       run: |
         $draft = $false
-        $preRelease = $false
-        
-        if ($env:PACKAGE_VERSION -match '-preview') {
-            $preRelease = $true
-        }
-        
+        $preRelease = if ($env:PACKAGE_VERSION -match '-preview') { $true } else { $false }
+
         $body = @"
         $($env:README_DESC)
         $($env:GITHUB_RELEASE_CHANGELOG)
@@ -312,9 +309,9 @@ jobs:
             }
         
             $releaseName = $ary[0]
-            Write-Host "ReleaseName: $name vs ProjectName: $env:PROJECT_NAME"
+            Write-Host "ReleaseName: $releaseName vs ProjectName: $env:PROJECT_NAME"
             $releaseVersion = $ary[1]
-            Write-Host "ReleaseVersion: $version vs PackageVersion: $env:PACKAGE_VERSION"
+            Write-Host "ReleaseVersion: $releaseVersion vs PackageVersion: $env:PACKAGE_VERSION"
         
             if ($releaseName -eq $env:PROJECT_NAME -and $releaseVersion -eq $env:PACKAGE_VERSION) {
                 Write-Host "Package '$env:PROJECT_NAME.$env:PACKAGE_VERSION.nupkg' was found to exist."

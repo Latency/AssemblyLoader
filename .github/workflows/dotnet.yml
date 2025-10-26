@@ -1,5 +1,9 @@
 name: .NET Build
-
+env:
+  NUGET_SERVER_URL: "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json"
+  NUGET_CONFIG: "../NuGet.config"
+  GH_TOKEN: ${{ secrets.LATENCY_PAT }}
+  
 on:
   push:
     branches: master
@@ -20,17 +24,28 @@ jobs:
         max-parallel: 2
         
     steps:
-   
+    - uses: NuGet/setup-nuget@v2.0.1   
     - uses: actions/checkout@v5.0.0
       with:
         fetch-depth: '0'
 
     - name: Install Configurations
       run: |
-        Copy-Item -Path "../../../../NuGet.Config.template" -Destination "../NuGet.Config"
+        Copy-Item -Path "../../../../NuGet.Config.template" -Destination ${{ env.NUGET_CONFIG }}
         Copy-Item -Path "../../../../Directory.Build.props" -Destination ".."
-        Copy-Item -Path "../../../../Directory.Build.targets" -Destination ".." 
-      
+        Copy-Item -Path "../../../../Directory.Build.targets" -Destination ".."
+        
+        nuget config -Set defaultPushSource="${{ env.NUGET_SERVER_URL }}" -ConfigFile ${{ env.NUGET_CONFIG }}
+        dotnet nuget add source --username ${{ github.repository_owner }} --password ${{ secrets.NUGET_AUTH_TOKEN }} --protocol-version 3 --configfile ${{ env.NUGET_CONFIG }} --name github "${{ env.NUGET_SERVER_URL }}"
+            
+    - uses: actions/setup-dotnet@v5.0.0
+      if: matrix.os != 'self-hosted'
+      with:
+        dotnet-version: '10.0.x'
+        source-url: ${{ env.NUGET_SERVER_URL }}
+      env:
+        NUGET_AUTH_TOKEN: ${{ secrets.NUGET_AUTH_TOKEN }}
+        
     - name: Restore dependencies
       run: dotnet restore
         
