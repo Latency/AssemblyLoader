@@ -7,23 +7,21 @@
 
 using System.Runtime.InteropServices;
 
-// ReSharper disable once CheckNamespace
+#pragma warning disable IDE0130
 namespace System.Reflection;
+#pragma warning restore IDE0130
 
 /// <summary>
 ///     Defines a support email address custom attribute for an assembly manifest.
 /// </summary>
 [AttributeUsage(AttributeTargets.Assembly)]
 [ComVisible(true)]
-public class AssemblySupportEmailAttribute : Attribute
+public sealed class AssemblySupportEmailAttribute : Attribute
 {
     /// <summary>
     ///     Defines a support email address custom attribute for an assembly manifest.
     /// </summary>
-    public AssemblySupportEmailAttribute(string value)
-    {
-        SupportEmail = value;
-    }
+    public AssemblySupportEmailAttribute(string value) => SupportEmail = value;
 
     /// <summary>
     ///     Gets the support email address.
@@ -31,5 +29,5 @@ public class AssemblySupportEmailAttribute : Attribute
     /// <returns>
     ///     A string containing the support email.
     /// </returns>
-    public string SupportEmail { get; set; }
+    public string SupportEmail { get; }
 }

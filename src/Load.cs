@@ -24,8 +24,7 @@ public static class Load
         var type = typeof(T);
         if (type == typeof(string))
         {
-            var filePath = assembly as string;
-            if (string.IsNullOrEmpty(filePath))
+            if (assembly is not string filePath || string.IsNullOrEmpty(filePath))
                 return null;
 
             try
@@ -57,7 +56,7 @@ public static class Load
         }
         else if (type == typeof(AssemblyName))
         {
-            // This should always be null, since there are no embedded assemblies within AssemblyInfo or contains the name as that found in Tests. 
+            // This should always be null, since there are no embedded assemblies within AssemblyInfo or contains the name as that found in Tests.
             // Since we are running these with VST in a proxy rather than assemblies loaded in the executing assembly, loaded assemblies can not be unloaded
             // without bringing down the domain.   There must be a host domain to call our methods.
             //

@@ -1,4 +1,6 @@
 ﻿# AssemblyLoader
+
+
 Assembly Information & Loader via Reflection
 
 
@@ -16,11 +18,11 @@ Assembly Information & Loader via Reflection
 </tr>
 <tr>
 <td>UPDATED:</td>
-<td>10/26/2025</td>
+<td>10/7/2026</td>
 </tr>
 <tr>
-<td>FRAMEWORK:</td>
-<td>net452, netstandard2.0, netstandard2.1, net10.0</td>
+<td>FRAMEWORKS:</td>
+<td>netstandard2.0, netstandard2.1</td>
 </tr>
 <tr>
 <td>LANGUAGE:</td>
@@ -44,7 +46,7 @@ Assembly Information & Loader via Reflection
 </tr>
 <tr>
 <td>STATUS:</td>
-<td><a href="https://github.com/Latency/AssemblyLoader/actions/workflows/dotnet.yml"><img src="https://github.com/Latency/AssemblyLoader/actions/workflows/dotnet.yml/badge.svg"></a></td>
+<td><a href="https://github.com/Latency/AssemblyLoader/actions/workflows/dotnet.yml"><img src="https://github.com/Latency/AssemblyLoader/actions/workflows/dotnet.yml/badge.svg"></a><br><a href="https://github.com/Latency/AssemblyLoader/actions/workflows/release.yml"><img src="https://github.com/Latency/AssemblyLoader/actions/workflows/release.yml/badge.svg"></a></td>
 </tr>
 <tr>
 <td>LICENSE:</td>
@@ -52,9 +54,9 @@ Assembly Information & Loader via Reflection
 </tr>
 <tr>
 <td>VERSION:</td>
-<td><a href="https://github.com/Latency/AssemblyLoader/releases"><img src="https://img.shields.io/github/v/release/Latency/AssemblyLoader?include_prereleases&style=plastic&logo=GitHub&logoColor=black&label=Version&color=blue"></a></td>
+<td>1.2.5</td>
 </tr>
-<!-- VERSION: 1.2.4 -->
+<!-- VERSION: 1.2.5 -->
 </table>
 
 

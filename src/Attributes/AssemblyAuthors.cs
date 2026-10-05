@@ -7,8 +7,9 @@
 
 using System.Runtime.InteropServices;
 
-// ReSharper disable once CheckNamespace
+#pragma warning disable IDE0130
 namespace System.Reflection;
+#pragma warning restore IDE0130
 
 /// <summary>
 ///     Defines an authors name custom attribute for an assembly manifest.
@@ -31,5 +32,5 @@ public sealed class AssemblyAuthorsAttribute : Attribute
     /// <returns>
     ///     A string containing the authors name.
     /// </returns>
-    public string Authors { get; set; }
+    public string Authors { get; }
 }

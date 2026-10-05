@@ -7,23 +7,21 @@
 
 using System.Runtime.InteropServices;
 
-// ReSharper disable once CheckNamespace
+#pragma warning disable IDE0130
 namespace System.Reflection;
+#pragma warning restore IDE0130
 
 /// <summary>
 ///     Defines a project URL custom attribute for an assembly manifest.
 /// </summary>
 [AttributeUsage(AttributeTargets.Assembly)]
 [ComVisible(true)]
-public class AssemblyPackageProjectUrlAttribute : Attribute
+public sealed class AssemblyPackageProjectUrlAttribute : Attribute
 {
     /// <summary>
     ///     Defines a project URL custom attribute for an assembly manifest.
     /// </summary>
-    public AssemblyPackageProjectUrlAttribute(string value)
-    {
-        PackageProjectUrl = value;
-    }
+    public AssemblyPackageProjectUrlAttribute(string value) => PackageProjectUrl = value;
 
     /// <summary>
     ///     Gets the project URL.
@@ -31,5 +29,5 @@ public class AssemblyPackageProjectUrlAttribute : Attribute
     /// <returns>
     ///     A string containing the project URL.
     /// </returns>
-    public string PackageProjectUrl { get; set; }
+    public string PackageProjectUrl { get; }
 }

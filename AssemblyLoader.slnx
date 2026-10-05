@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="src/AssemblyLoader.csproj" />
+  <Project Path="Unit Tests/Unit Tests.csproj" />
+</Solution>

@@ -1,22 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<IsMainProject>True</IsMainProject>
-		<TargetFrameworks>net452;netstandard2.0;netstandard2.1;net10.0</TargetFrameworks>
-		<Version>1.2.4</Version>
+		<TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
+		<Version>1.2.5</Version>
 		<Description>Assembly Information &amp; Loader via Reflection</Description>
 		<PackageTags>AssemblyLoader C# AssemblyInfo</PackageTags>
-		<PackageReleaseNotes>Update target framework to include .NET 10.0.</PackageReleaseNotes>
-		<Nullable>enable</Nullable>
+		<PackageReleaseNotes>Multi-target framework support for .NET Standard and .NET 11.</PackageReleaseNotes>
 	</PropertyGroup>
-
-	<ItemGroup>
-		<PackageReference Remove="AssemblyLoader" Version="1.2.3" />
-	</ItemGroup>
-	
-	<ItemGroup>
-	  <Compile Remove="ProxyClass.cs" />
-	  <Compile Update="ProxyClass.cs" Condition="!$(TargetFrameworks.Contains('netstandard'))" />
-	</ItemGroup>
 
 </Project>

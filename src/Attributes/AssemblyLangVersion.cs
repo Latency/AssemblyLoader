@@ -7,8 +7,9 @@
 
 using System.Runtime.InteropServices;
 
-// ReSharper disable CheckNamespace
+#pragma warning disable IDE0130
 namespace System.Reflection;
+#pragma warning restore IDE0130
 
 /// <summary>
 ///     Defines a language version custom attribute for an assembly manifest.
@@ -20,10 +21,7 @@ public sealed class AssemblyLangVersionAttribute : Attribute
     /// <summary>
     ///     Defines a language version custom attribute for an assembly manifest.
     /// </summary>
-    public AssemblyLangVersionAttribute(string langVersion)
-    {
-        LangVersion = langVersion;
-    }
+    public AssemblyLangVersionAttribute(string langVersion) => LangVersion = langVersion;
 
     /// <summary>
     ///     Gets the language version type from the compiler.
@@ -31,5 +29,5 @@ public sealed class AssemblyLangVersionAttribute : Attribute
     /// <returns>
     ///     A string containing the compilers language version.
     /// </returns>
-    public string LangVersion { get; set; }
+    public string LangVersion { get; }
 }
