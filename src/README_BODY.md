@@ -15,7 +15,7 @@
 Gets assembly information at runtime commonly found in *Properties* within .NET assemblies.
 Dynamically loads / unloads assemblies and their dependencies within a proxy for validation.
 
-<h2><a name=history">History</a></h2>
+<h2><a name="history">History</a></h2>
 
 Trying to get information out of an assembly without loading it into the current application domain is not that simple.
 There is no way to get custom assembly attributes without loading it into the current AppDomain.

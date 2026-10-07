@@ -91,5 +91,6 @@ public static class Load
     }
 
 
+    // ReSharper disable once UnusedMember.Global
     public static IEnumerable<Assembly?> Assembly<T>(IEnumerable<T> obj) => obj.Select(Assembly);
 }

@@ -18,7 +18,7 @@ Assembly Information & Loader via Reflection
 </tr>
 <tr>
 <td>UPDATED:</td>
-<td>10/6/2026</td>
+<td>10/9/2026</td>
 </tr>
 <tr>
 <td>FRAMEWORKS:</td>
@@ -46,7 +46,7 @@ Assembly Information & Loader via Reflection
 </tr>
 <tr>
 <td>STATUS:</td>
-<td><a href="https://github.com/Latency/AssemblyLoader/actions/workflows/dotnet.yml"><img src="https://github.com/Latency/AssemblyLoader/actions/workflows/dotnet.yml/badge.svg"></a><br><a href="https://github.com/Latency/AssemblyLoader/actions/workflows/release.yml"><img src="https://github.com/Latency/AssemblyLoader/actions/workflows/release.yml/badge.svg"></a></td>
+<td><a href="https://github.com/Latency/AssemblyLoader/actions/workflows/status.yml"><img src="https://github.com/Latency/AssemblyLoader/actions/workflows/status.yml/badge.svg"></a></td>
 </tr>
 <tr>
 <td>LICENSE:</td>
@@ -77,7 +77,7 @@ Assembly Information & Loader via Reflection
 Gets assembly information at runtime commonly found in *Properties* within .NET assemblies.
 Dynamically loads / unloads assemblies and their dependencies within a proxy for validation.
 
-<h2><a name=history">History</a></h2>
+<h2><a name="history">History</a></h2>
 
 Trying to get information out of an assembly without loading it into the current application domain is not that simple.
 There is no way to get custom assembly attributes without loading it into the current AppDomain.

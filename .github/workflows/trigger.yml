@@ -48,7 +48,7 @@ jobs:
           # 1. Setup Request Metadata
           $ref        = "$env:GITHUB_REF"
           $owner      = "$env:GITHUB_REPOSITORY_OWNER"
-          $sourceRepo = "$env:GITHUB_REPOSITORY"
+          $sourceRepo = "$($env:GITHUB_REPOSITORY.Split('/')[1])"
           $targetRepo = "$env:RUNNER_REPOSITORY"
           $uri        = "https://api.github.com/repos/$owner/$targetRepo/dispatches"
 
@@ -62,9 +62,11 @@ jobs:
           $body = @{
             event_type     = "trigger-external-build"
             client_payload = @{
+              owner        = "$owner"
               repository   = "$sourceRepo"
               ref          = "$ref"
-              token        = "${{ secrets.PIPELINE_TRIGGER_TOKEN }}" 
+              token        = "${{ secrets.PIPELINE_TRIGGER_TOKEN }}"
+              uri          = "https://api.github.com/repos/$owner/$sourceRepo/dispatches"
             }
           }
 
