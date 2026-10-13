@@ -64,12 +64,12 @@ Assembly Information & Loader via Reflection
 
 ## Navigation
 
-• [Introduction](#introduction)
-• [History](#history)
-• [Solution](#solution)
-• [Usage](#usage)
-• [Installation](#installation)
-• [License](#license)
+* [Introduction](#introduction)
+* [History](#history)
+* [Solution](#solution)
+* [Usage](#usage)
+* [Installation](#installation)
+* [License](#license)
 
 ---
 
