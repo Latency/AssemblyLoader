@@ -1,7 +1,1 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
-	<ItemGroup>
-		<ProjectReference Include="..\src\AssemblyLoader.csproj" />
-	</ItemGroup>
-
-</Project>
+﻿<Project Sdk="Microsoft.NET.Sdk" />

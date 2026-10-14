@@ -1,8 +1,8 @@
 // ****************************************************************************
-// Project:  UnitTests
-// File:     TTests.cs
+// Project:  Unit Tests
+// File:     TTest.cs
 // Author:   Latency McLaughlin
-// Date:     1/22/2024
+// Date:     10/13/2026
 // ****************************************************************************
 // ReSharper disable InconsistentNaming
 
@@ -10,24 +10,24 @@ using AssemblyLoader;
 
 namespace Unit_Tests;
 
-public partial class Tests
+public class Tests(ITestOutputHelper output)
 {
     [Fact]
     public void TTest()
     {
         var asm = typeof(AssemblyInfo).Assembly;
 
-        Console.WriteLine($"ProductTitle:      {asm.Title()}");
-        Console.WriteLine($"AssemblyVersion:   {asm.Version()}");
-        Console.WriteLine($"Authors:           {asm.Authors()}");
-        Console.WriteLine($"Define Constants:  {asm.DefineConstants()}");
-        Console.WriteLine($"Description:       {asm.Description()}");
-        Console.WriteLine($"Product:           {asm.Product()}");
-        Console.WriteLine($"Copyright:         {asm.Copyright()}");
-        Console.WriteLine($"Company:           {asm.Company()}");
-        Console.WriteLine($"Trademark:         {asm.Trademark()}");
-        Console.WriteLine($"LangVersion:       {asm.LangVersion()}");
-        Console.WriteLine($"PackageProjectUrl: {asm.ProjectUrl()}");
-        Console.WriteLine($"SupportEmail:      {asm.SupportEmail()}");
+        output.WriteLine($"ProductTitle:      {asm.Title()}");
+        output.WriteLine($"AssemblyVersion:   {asm.Version()}");
+        output.WriteLine($"Authors:           {asm.Authors()}");
+        output.WriteLine($"Define Constants:  {asm.DefineConstants()}");
+        output.WriteLine($"Description:       {asm.Description()}");
+        output.WriteLine($"Product:           {asm.Product()}");
+        output.WriteLine($"Copyright:         {asm.Copyright()}");
+        output.WriteLine($"Company:           {asm.Company()}");
+        output.WriteLine($"Trademark:         {asm.Trademark()}");
+        output.WriteLine($"LangVersion:       {asm.LangVersion()}");
+        output.WriteLine($"PackageProjectUrl: {asm.ProjectUrl()}");
+        output.WriteLine($"SupportEmail:      {asm.SupportEmail()}");
     }
 }

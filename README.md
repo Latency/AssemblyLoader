@@ -1,68 +1,28 @@
 ﻿# AssemblyLoader
-
-
+ 
 Assembly Information & Loader via Reflection
-
-
----
-
-
-<table>
-<tr>
-<th></th>
-<th>Description</th>
-</tr>
-<tr>
-<td>CREATED BY:</td>
-<td>[Latency McLaughlin]</td>
-</tr>
-<tr>
-<td>UPDATED:</td>
-<td>10/12/2026</td>
-</tr>
-<tr>
-<td>FRAMEWORKS:</td>
-<td>net45, net451, net452, net46, net461, net462, net47, net471, net472, net48, net481, netstandard2.0, netstandard2.1, net8.0, net9.0, net10.0, net11.0</td>
-</tr>
-<tr>
-<td>LANGUAGE:</td>
-<td>[C#] preview</td>
-</tr>
-<tr>
-<td>OUTPUT TYPE:</td>
-<td>Library [API]</td>
-</tr>
-<tr>
-<td>SUPPORTS:</td>
-<td>[Visual Studio]</td>
-</tr>
-<tr>
-<td>GFX SUBSYS:</td>
-<td>[None]</td>
-</tr>
-<tr>
-<td>TAGS:</td>
-<td>[AssemblyLoader C# AssemblyInfo]</td>
-</tr>
-<tr>
-<td>STATUS:</td>
-<td><a href="https://github.com/Latency/AssemblyLoader/actions/workflows/status.yml"><img src="https://github.com/Latency/AssemblyLoader/actions/workflows/status.yml/badge.svg"></a></td>
-</tr>
-<tr>
-<td>LICENSE:</td>
-<td><a href="https://github.com/Latency/AssemblyLoader/blob/master/MIT-LICENSE.txt"><img src="https://img.shields.io/github/license/Latency/AssemblyLoader?style=plastic&logo=GitHub&logoColor=black&label=License&color=yellowgreen"></a></td>
-</tr>
-<tr>
-<td>VERSION:</td>
-<td>1.2.6</td>
-</tr>
-<!-- VERSION: 1.2.6 -->
-</table>
-
-
+ 
+| | Description |
+|---|---|
+| CREATED BY: | [Latency McLaughlin] |
+| UPDATED: | 10/13/2026 |
+| FRAMEWORKS: | net45, net451, net452, net46, net461, net462, net47, net471, net472, net48, net481, netstandard2.0, netstandard2.1, net8.0, net9.0, net10.0, net11.0 |
+| LANGUAGE: | [C#] preview |
+| OUTPUT TYPE: | Library [API] |
+| SUPPORTS: | [Visual Studio] |
+| GFX SUBSYS: | [None] |
+| TAGS: | [AssemblyLoader C# AssemblyInfo] |
+| STATUS: | [![workflow-badge](https://github.com/Latency/AssemblyLoader/actions/workflows/status.yml/badge.svg)](https://github.com/Latency/AssemblyLoader/actions/workflows/status.yml) |
+| LICENSE: | [![license-badge](https://img.shields.io/github/license/Latency/AssemblyLoader?style=plastic&logo=GitHub&logoColor=black&label=License&color=yellowgreen)](https://github.com/Latency/AssemblyLoader/blob/master/MIT-LICENSE.txt) |
+| VERSION: | 1.2.7 |
+<!-- VERSION: 1.2.7 -->
+ 
 ---
 
 ## Navigation
+* [Installation](#installation)
+* [Donation](#donation)
+* [License](#license)
 
 * [Introduction](#introduction)
 * [History](#history)
@@ -131,3 +91,30 @@ The source code for the site is licensed under the MIT license, which you can fi
    [GNU LESSER GENERAL PUBLIC LICENSE]: <http://www.gnu.org/licenses/lgpl-3.0.en.html>
    [MSDN article]: <https://msdn.microsoft.com/en-us/library/c5b8a8f9(v=vs.100).aspx>
    [MIT-License]: <http://choosealicense.com/licenses/mit/>
+ 
+## Installation
+
+This library can be installed from [NuGet].
+
+## Donation
+If you want to donate to my efforts on this project, please use the following link,
+
+[![Donate via Paypal](https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif)](https://paypal.me/Latency2?country.x=US&locale.x=en_US)
+
+   ## License
+
+The source code for the site is licensed under the MIT license, which you can find in the [MIT-LICENSE].txt file.
+  
+---
+
+[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job.)
+
+   [NuGet]: <https://github.com/Latency/AssemblyLoader/pkgs/nuget/AssemblyLoader/>
+   [.NET]: <https://en.wikipedia.org/wiki/.NET_Framework/>
+   [Visual Studio]: <https://en.wikipedia.org/wiki/Microsoft_Visual_Studio/>
+   [Latency McLaughlin]: <https://www.linkedin.com/in/Latency/>
+   [API]: <https://en.wikipedia.org/wiki/Application_programming_interface>
+   [C#]: <https://en.wikipedia.org/wiki/C_Sharp_(programming_language)>
+   [DLL]: <https://en.wikipedia.org/wiki/Dynamic-link_library>
+   [MIT-License]: <http://choosealicense.com/licenses/mit/>
+   [Unit Tests]: <https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-csharp-with-xunit>
