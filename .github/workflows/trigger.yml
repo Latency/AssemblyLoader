@@ -18,18 +18,18 @@ on:
           - 'Verbose'
 
 jobs:
-  pre_job:
+  pre_job: 
     runs-on: ubuntu-latest
-    outputs:
-      should_skip: ${{ steps.skip_check.outputs.should_skip }}
-    steps:
-      - id: skip_check
-        uses: fkirc/skip-duplicate-actions@v5.3.2
-        with:
-          skip_after_successful_duplicate: 'true'
-
+    outputs: 
+      should_skip: ${{ steps.skip_check.outputs.should_skip }} 
+    steps: 
+      - id: skip_check 
+        uses: fkirc/skip-duplicate-actions@v5.3.2 
+        with: 
+          skip_after_successful_duplicate: 'true' 
+ 
   dispatch_build:
-    needs: pre_job
+    needs: pre_job 
     if: ${{ needs.pre_job.outputs.should_skip != 'true' }}
     name: Dispatch Build Event
     runs-on: ubuntu-latest
@@ -52,10 +52,19 @@ jobs:
           $targetRepo = "$env:RUNNER_REPOSITORY"
           $uri        = "https://api.github.com/repos/$owner/$targetRepo/dispatches"
 
+          if (!$targetRepo) {
+              throw "Target repository must be defined as a secret within the Actions settings."
+          }
+
           # 2. Build Headers
+          $token = "${{ secrets.PIPELINE_TRIGGER_TOKEN }}"
           $headers = @{
-            "Authorization" = "Bearer ${{ secrets.PIPELINE_TRIGGER_TOKEN }}"
+            "Authorization" = "Bearer $token"
             "Accept" = "application/vnd.github.v3+json"
+          }
+
+          if (!$token) {
+              throw "Pipeline trigger token must be defined as a secret within the Actions settings."
           }
 
           # 3. Construct Payload
@@ -65,7 +74,7 @@ jobs:
               owner        = "$owner"
               repository   = "$sourceRepo"
               ref          = "$ref"
-              token        = "${{ secrets.PIPELINE_TRIGGER_TOKEN }}"
+              token        = "$token"
               uri          = "https://api.github.com/repos/$owner/$sourceRepo/dispatches"
             }
           }

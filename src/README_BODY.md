@@ -6,8 +6,6 @@
 * [History](#history)
 * [Solution](#solution)
 * [Usage](#usage)
-* [Installation](#installation)
-* [License](#license)
 
 ---
 
@@ -53,19 +51,3 @@ Trying to access these from another AppDomain (the caller's domain) would result
 • Types called across AppDomain boundaries must be called via an interface.
 • The property `LoaderOptimization` must be set to `LoaderOptimization.MultiDomainHost`.
 • Construct a proxy manager that loads assemblies into AppDomains, performs queries, and unloads AppDomains.
-
-## Installation
-
-This library can be installed using NuGet found [here](https://www.nuget.org/packages/AssemblyLoader/).
-
-## License
-
-The source code for the site is licensed under the MIT license, which you can find in the [MIT-LICENSE].txt file.
-
----
-
-[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job.)
-
-   [GNU LESSER GENERAL PUBLIC LICENSE]: <http://www.gnu.org/licenses/lgpl-3.0.en.html>
-   [MSDN article]: <https://msdn.microsoft.com/en-us/library/c5b8a8f9(v=vs.100).aspx>
-   [MIT-License]: <http://choosealicense.com/licenses/mit/>
